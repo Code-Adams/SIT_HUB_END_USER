@@ -42,7 +42,7 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
         //setting up drawer listener
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        //Showing toggle option toolbar
+        //Showing menu items
        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
        //Listens which item is clicked and gets it's id
         navigationView.setNavigationItemSelectedListener(this);

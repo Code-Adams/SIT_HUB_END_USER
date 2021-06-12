@@ -10,4 +10,30 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start">start</string>
     <string name="close">close</string>
+    <string name="Home">Home</string>
+    <string name="Feed">Feed</string>
+    <string name="About">About</string>
+    <string name="Gallery">Gallery</string>
+    <string name="Faculty">Faculty</string>
+    <string name="Lectures">Lectures</string>
+    <string name="eBook">e-Books</string>
+    <string name="Website">Website</string>
+    <string name="Share">Share</string>
+    <string name="Theme">Theme</string>
+    <string name="RateUs">Rate Us</string>
+    <string name="Developer">Know Developers</string>
+    <string name="aboutCollege">Vision
+To develop young minds in a learning environment of high academic ambience by synergising spiritual values and technological competence.Mission
+To continuously strive for the total development of students by educating them in state-of-the-art-technologies and helping them imbibe professional ethics and societal commitment, so that they emerge as competent professionals to meet the global challenges.
+Quality PolicySiddaganga Institute of Technology is Committed to:1. Impart Quality Education by establishing effective learning teaching earning processes to produce competent engineers and managers with high professional ethics and societal responsibility.2. Create congenial environment and provide state-of the-art infrastructure.
+3. Continually improve the effectiveness</string>
+    <string name="Departments">Departments</string>
+    <string name="ComputerScience">Computer Science</string>
+    <string name="InformationScience">Information Science</string>
+    <string name="Namma_SIT">SIT_Official</string>
+    <string name="Title_Will_Load_Here">Title Will Load Here</string>
+    <string name="Date">Date: </string>
+    <string name="Time">Time: </string>
+    <string name="demoDate">00/00/00</string>
+    <string name="demoTime">00:00</string>
 </resources>

@@ -2,25 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/navigation_video"
-          android:title="Lectures"
+          android:title="@string/Lectures"
         android:icon="@drawable/ic_video"/>
     <item android:id="@+id/navigation_ebook"
-          android:title="E-Books"
+          android:title="@string/eBook"
         android:icon="@drawable/ic_ebook"/>
     <item android:id="@+id/navigation_website"
-          android:title="Website"
+          android:title="@string/Website"
         android:icon="@drawable/ic_website"/>
     <item android:id="@+id/navigation_share"
-          android:title="Share"
+          android:title="@string/Share"
         android:icon="@drawable/ic_share"/>
     <item android:id="@+id/navigation_theme"
-        android:title="Theme"
+        android:title="@string/Theme"
         android:icon="@drawable/ic_theme"/>
     <item android:id="@+id/navigation_review"
-        android:title="Rate us"
+        android:title="@string/RateUs"
         android:icon="@drawable/ic_review"/>
     <item android:id="@+id/navigation_developer"
-          android:title="Developer"
+          android:title="@string/Developer"
         android:icon="@drawable/ic_developer"/>
 
 
