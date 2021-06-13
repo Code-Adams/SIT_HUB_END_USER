@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
         setSliderAttributes(view);
         setSliderImages();
 
+
         collegeLocationImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

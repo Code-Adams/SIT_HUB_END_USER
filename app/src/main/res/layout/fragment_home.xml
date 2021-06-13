@@ -15,11 +15,16 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:orientation="vertical">
-          
+
           <com.smarteist.autoimageslider.SliderLayout
+              android:id="@+id/homeSliderLayout"
               android:layout_width="match_parent"
-              android:layout_height="250dp"
-              android:id="@+id/homeSliderLayout"/>
+              android:layout_height="250dp" />
+
+<!--          Aditya works here!!-->
+
+
+
 
           <TextView
               android:layout_width="wrap_content"
