@@ -37,8 +37,8 @@ public class FeedFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_feed, container, false);
-        feedRecycler=view.findViewById(R.id.deleteFeedRecycler);
-        progressBar=view.findViewById(R.id.progressBar);
+        feedRecycler=view.findViewById(R.id.feedRecycler);
+        progressBar=view.findViewById(R.id.feedProgressBar);
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
         feedRecycler.setLayoutManager(new LinearLayoutManager(getContext()));

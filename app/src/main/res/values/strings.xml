@@ -57,6 +57,10 @@ Quality PolicySiddaganga Institute of Technology is Committed to:1. Impart Quali
     <string name="Industrial_Engineering_And_Management">Industrial Engineering &amp; Management</string>
     <string name="Artificial_Intelligence_and_Data_Science">Artificial Intelligence and Data Science</string>
 
+    <string name="Companies_Visited">Companies Visited</string>
+    <string name="Offers_Made">Offers Made To Date</string>
+    <string name="Internships_Offered">Internships Offered</string>
+    <string name="Highest_Package">Highest Package</string>
 
 
 </resources>
