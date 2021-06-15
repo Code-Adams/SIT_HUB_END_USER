@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
                 goldMedalistRecyclerAdapter.notifyDataSetChanged();
                 //As recycler is reset disable progress bar
                 progressBar.setVisibility(View.GONE);
-                goldMedalistRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                goldMedalistRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
                 goldMedalistRecyclerView.setAdapter(goldMedalistRecyclerAdapter);
 
             }

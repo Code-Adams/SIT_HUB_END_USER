@@ -7,19 +7,24 @@
    >
     <androidx.cardview.widget.CardView
         android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         app:cardCornerRadius="5dp"
-        android:elevation="5dp"
+        android:elevation="200dp"
+        app:cardBackgroundColor="#5A4FCF"
         app:cardUseCompatPadding="true">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="15dp">
+            android:layout_marginBottom="4dp"
+            android:background="#ffffff"
+            android:layout_marginTop="2dp"
+            android:layout_marginHorizontal="2dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/goldMedalistImage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
+                android:layout_marginTop="5dp"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"

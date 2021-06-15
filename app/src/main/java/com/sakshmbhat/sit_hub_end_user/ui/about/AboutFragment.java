@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sakshmbhat.sit_hub_end_user.R;
 import com.smarteist.autoimageslider.DefaultSliderView;
@@ -19,6 +20,9 @@ public class AboutFragment extends Fragment {
 
     private SliderLayout aboutSliderLayout;
 
+    private  TextView clickToViewVision,clickToViewMission,clickToViewQualityPolicy;
+    private  TextView visionTV,missionTV,qualityPolicyTV;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,6 +32,27 @@ public class AboutFragment extends Fragment {
         initialization(view);
         setSliderAttributes(view);
         setSliderImages();
+
+        clickToViewVision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                visionTV.setVisibility(View.VISIBLE);
+            }
+        });
+
+        clickToViewMission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                missionTV.setVisibility(View.VISIBLE);
+            }
+        });
+
+        clickToViewQualityPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                qualityPolicyTV.setVisibility(View.VISIBLE);
+            }
+        });
 
         return view;
     }
@@ -84,5 +109,19 @@ public class AboutFragment extends Fragment {
 
     private void initialization(View view) {
         aboutSliderLayout=view.findViewById(R.id.aboutSliderLayout);
+
+        clickToViewVision=view.findViewById(R.id.clickToViewVision);
+        clickToViewMission=view.findViewById(R.id.clickToViewMission);
+        clickToViewQualityPolicy=view.findViewById(R.id.clickToViewQualityPolicy);
+
+        visionTV=view.findViewById(R.id.visionTV);
+        visionTV.setVisibility(View.GONE);
+
+        missionTV=view.findViewById(R.id.missionTV);
+        missionTV.setVisibility(View.GONE);
+
+        qualityPolicyTV=view.findViewById(R.id.qualityPolicyTV);
+        qualityPolicyTV.setVisibility(View.GONE);
+
     }
 }
