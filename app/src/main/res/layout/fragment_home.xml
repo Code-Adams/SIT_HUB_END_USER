@@ -80,12 +80,13 @@
                       android:layout_height="1dp"
                       android:layout_marginVertical="4dp"
                       android:background="@color/grey"/>
+
                   <HorizontalScrollView
                       android:id="@+id/horizontalScrollView"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:paddingRight="3dp"
                       android:paddingLeft="3dp"
+                      android:paddingRight="3dp"
                       android:scrollbars="none">
 
                       <LinearLayout
@@ -102,24 +103,23 @@
                               android:orientation="vertical">
 
                               <TextView
+                                  android:id="@+id/companiesVisited"
                                   android:layout_width="70dp"
                                   android:layout_height="70dp"
-                                  android:text="74T"
-                                  android:gravity="center"
                                   android:layout_centerHorizontal="true"
                                   android:background="@drawable/circular_text_view"
-                                  android:id="@+id/companiesVisited" />
+                                  android:gravity="center"
+                                  android:text="74T" />
 
                               <TextView
                                   android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:text="@string/Companies_Visited"
                                   android:layout_below="@id/companiesVisited"
-                                  android:textStyle="bold"
+                                  android:layout_marginTop="5dp"
                                   android:gravity="center"
-                                  android:textSize="@dimen/text_size19"/>
-
+                                  android:text="@string/Companies_Visited"
+                                  android:textSize="@dimen/text_size19"
+                                  android:textStyle="bold" />
 
 
                           </RelativeLayout>
@@ -127,29 +127,29 @@
                           <RelativeLayout
                               android:layout_width="120dp"
                               android:layout_height="120dp"
-                              android:layout_marginEnd="60dp"
                               android:layout_marginTop="5dp"
+                              android:layout_marginEnd="60dp"
                               android:gravity="center"
                               android:orientation="vertical">
 
                               <TextView
+                                  android:id="@+id/offersMade"
                                   android:layout_width="70dp"
                                   android:layout_height="70dp"
-                                  android:text="694T"
-                                  android:gravity="center"
                                   android:layout_centerHorizontal="true"
                                   android:background="@drawable/circular_text_view"
-                                  android:id="@+id/offersMade" />
+                                  android:gravity="center"
+                                  android:text="694T" />
 
                               <TextView
                                   android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:text="@string/Offers_Made"
                                   android:layout_below="@id/offersMade"
-                                  android:textStyle="bold"
+                                  android:layout_marginTop="5dp"
                                   android:gravity="center"
-                                  android:textSize="@dimen/text_size19"/>
+                                  android:text="@string/Offers_Made"
+                                  android:textSize="@dimen/text_size19"
+                                  android:textStyle="bold" />
 
                           </RelativeLayout>
 
@@ -157,29 +157,29 @@
                           <RelativeLayout
                               android:layout_width="120dp"
                               android:layout_height="120dp"
-                              android:layout_marginEnd="60dp"
                               android:layout_marginTop="5dp"
+                              android:layout_marginEnd="60dp"
                               android:gravity="center"
                               android:orientation="vertical">
 
                               <TextView
+                                  android:id="@+id/internshipsOffered"
                                   android:layout_width="70dp"
                                   android:layout_height="70dp"
                                   android:layout_centerHorizontal="true"
-                                  android:text="100T"
-                                  android:gravity="center"
                                   android:background="@drawable/circular_text_view"
-                                  android:id="@+id/internshipsOffered" />
+                                  android:gravity="center"
+                                  android:text="100T" />
 
                               <TextView
                                   android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:text="@string/Internships_Offered"
                                   android:layout_below="@id/internshipsOffered"
-                                  android:textStyle="bold"
+                                  android:layout_marginTop="5dp"
                                   android:gravity="center"
-                                  android:textSize="@dimen/text_size19"/>
+                                  android:text="@string/Internships_Offered"
+                                  android:textSize="@dimen/text_size19"
+                                  android:textStyle="bold" />
 
                           </RelativeLayout>
 
@@ -187,34 +187,31 @@
                           <RelativeLayout
                               android:layout_width="120dp"
                               android:layout_height="120dp"
-                              android:layout_marginEnd="60dp"
                               android:layout_marginTop="5dp"
+                              android:layout_marginEnd="60dp"
                               android:gravity="center"
                               android:orientation="vertical">
 
                               <TextView
+                                  android:id="@+id/highestPackage"
                                   android:layout_width="70dp"
                                   android:layout_height="70dp"
                                   android:layout_centerHorizontal="true"
-                                  android:text="694"
-                                  android:gravity="center"
                                   android:background="@drawable/circular_text_view"
-                                  android:id="@+id/highestPackage" />
+                                  android:gravity="center"
+                                  android:text="694" />
 
                               <TextView
                                   android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:layout_marginTop="5dp"
-                                  android:text="@string/Highest_Package"
                                   android:layout_below="@id/highestPackage"
-                                  android:textStyle="bold"
+                                  android:layout_marginTop="5dp"
                                   android:gravity="center"
-                                  android:textSize="@dimen/text_size19"/>
+                                  android:text="@string/Highest_Package"
+                                  android:textSize="@dimen/text_size19"
+                                  android:textStyle="bold" />
 
                           </RelativeLayout>
-
-
-
 
 
                       </LinearLayout>
@@ -286,7 +283,8 @@
               <androidx.recyclerview.widget.RecyclerView
                   android:id="@+id/goldMedalistRecycler"
                   tools:listitem="@layout/gold_medalist_card"
-                  android:background="@color/grey"
+                  android:padding="10dp"
+                  android:background="@color/grey2"
                   android:orientation="horizontal"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"/>
