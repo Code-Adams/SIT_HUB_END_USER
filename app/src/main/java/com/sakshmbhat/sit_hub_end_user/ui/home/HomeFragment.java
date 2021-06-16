@@ -25,8 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sakshmbhat.sit_hub_end_user.R;
-import com.sakshmbhat.sit_hub_end_user.ui.feed.FeedAdapter;
-import com.sakshmbhat.sit_hub_end_user.ui.feed.FeedData;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;

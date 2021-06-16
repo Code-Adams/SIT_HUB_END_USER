@@ -66,5 +66,8 @@ Quality PolicySiddaganga Institute of Technology is Committed to:1. Impart Quali
     <string name="Vision"><u>Vision</u>:</string>
     <string name="Mission"><u>Mission</u>:</string>
     <string name="Quality_Policy"><u>Quality Policy</u>:</string>
+    <string name="Administrative_Management"><u>Admin Management</u>:</string>
+
+    <string name="Visit_Page"><u>Visit Page</u></string>
 
 </resources>

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5A4FCF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.about.AboutFragment">
 
     <LinearLayout
@@ -18,28 +20,56 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/grey">
+            android:background="#ffffff"
+            android:elevation="100dp"
+            android:layout_marginBottom="5dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Overview"
-                android:textSize="@dimen/title_size"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="#5A4FCF"
-                android:fontFamily="@string/bold"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Overview"
+                    android:textSize="@dimen/title_size"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="#5A4FCF"
+                    android:fontFamily="@string/bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clickToViewOverview"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text="(Click to view)"
+                    android:textSize="10dp"/>
+
+
+
+            </LinearLayout>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:id="@+id/overviewItemContainerLL"
             android:background="@color/grey2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -54,6 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/clickToViewVision"
+                    android:textColor="#000000"
                     android:text="(Click to view)"
                     android:textSize="10dp"/>
 
@@ -62,6 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="2dp"
                 android:text="OverView Comes Here"
                 android:textAlignment="textStart"
                 android:id="@+id/visionTV"
@@ -74,6 +106,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="5dp"
                 android:layout_marginTop="@dimen/text_margin"
                 android:orientation="horizontal">
 
@@ -88,6 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000000"
                     android:text="(Click to view)"
                     android:id="@+id/clickToViewMission"
                     android:textSize="10dp"/>
@@ -97,6 +131,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="2dp"
                 android:text="Mission Comes Here"
                 android:textAlignment="textStart"
                 android:id="@+id/missionTV"
@@ -109,6 +144,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="5dp"
                 android:layout_marginTop="@dimen/text_margin"
                 android:orientation="horizontal">
 
@@ -123,6 +159,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000000"
                     android:id="@+id/clickToViewQualityPolicy"
                     android:text="(Click to view)"
                     android:textSize="10dp"/>
@@ -132,6 +169,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="2dp"
                 android:text="OverView Comes Here"
                 android:textAlignment="textStart"
                 android:id="@+id/qualityPolicyTV"
@@ -145,7 +183,56 @@
 
         </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:elevation="100dp"
+            android:layout_marginVertical="5dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Administrative_Management"
+                    android:textSize="@dimen/title_size"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="#5A4FCF"
+                    android:fontFamily="@string/bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clickToViewAdminManagers"
+                    android:textColor="#000000"
+                    android:layout_gravity="center"
+                    android:text="(Click to view)"
+                    android:textSize="10dp"/>
+
+
+
+            </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/adminManagerRecyclerView"
+                tools:listitem="@layout/admin_manager_card"
+                android:background="@color/grey"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
