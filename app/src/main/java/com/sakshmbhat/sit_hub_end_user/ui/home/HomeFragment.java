@@ -151,12 +151,30 @@ public class HomeFragment extends Fragment {
 
     private void setMHRDImage() {
 
-        try {
-            Glide.with(getContext()).load("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/MHRD%2C%20CollegeRank%2C%20ISO%20etc%20Image%2FPic.webp?alt=media&token=19c5de5a-3fd2-45fa-8ade-455eab74c13e").into(collegeMHRDImage);
-        }catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(getContext(), "Oops some components can't be loaded!: "+ e.getMessage() , Toast.LENGTH_SHORT).show();
-        }
+        FirebaseDatabase.getInstance().getReference().child("Home").child("MHRDrank").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    try {
+                        Glide.with(getContext()).load(snapshot.child("PIC").getValue().toString()).into(collegeMHRDImage);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        Toast.makeText(getContext(), "MHRDrank pic missing" , Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+
+            }
+        });
+
+
 
 
     }

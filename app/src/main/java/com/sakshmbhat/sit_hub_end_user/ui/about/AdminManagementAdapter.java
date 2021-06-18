@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,9 +63,12 @@ public class AdminManagementAdapter extends RecyclerView.Adapter<AdminManagement
         holder.visitManagerPage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+               try{ Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
                 myWebLink.setData(Uri.parse(holder.managerPageUrl.getText().toString()));
                 context.startActivity(myWebLink);
+               }catch (Exception e){
+                   Toast.makeText(context, "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+               }
 
 //                Intent intent = new Intent();
 //                intent.setAction(Intent.ACTION_VIEW);

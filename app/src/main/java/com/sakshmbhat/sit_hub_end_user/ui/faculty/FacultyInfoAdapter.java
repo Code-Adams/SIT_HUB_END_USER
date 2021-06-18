@@ -2,11 +2,13 @@ package com.sakshmbhat.sit_hub_end_user.ui.faculty;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,6 +53,7 @@ public class FacultyInfoAdapter extends  RecyclerView.Adapter<FacultyInfoAdapter
         holder.name.setText(facultyAttributes.getName());
         holder.post.setText(facultyAttributes.getPost());
         holder.email.setText(facultyAttributes.getEmail());
+        holder.facultyPageUrl.setText(facultyAttributes.getProfileUrl());
 
         try {
             Glide.with(context).load(facultyAttributes.getImageUrl()).apply(new RequestOptions().override(90,90)).placeholder(R.drawable.user).into(holder.facultyCircleImageview);
@@ -58,6 +61,18 @@ public class FacultyInfoAdapter extends  RecyclerView.Adapter<FacultyInfoAdapter
             e.printStackTrace();
         }
 
+        holder.visitFacultyPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try{ Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(holder.facultyPageUrl.getText().toString()));
+                    context.startActivity(myWebLink);
+                }catch (Exception e){
+                    Toast.makeText(context, "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
     }
@@ -69,7 +84,7 @@ public class FacultyInfoAdapter extends  RecyclerView.Adapter<FacultyInfoAdapter
 
     public class facultyInfoViewAdapter extends RecyclerView.ViewHolder {
 
-         private TextView  name,email,post;
+         private TextView  name,email,post,visitFacultyPage,facultyPageUrl;
          private CircleImageView facultyCircleImageview;
 
         public facultyInfoViewAdapter(@NonNull View itemView) {
@@ -79,6 +94,8 @@ public class FacultyInfoAdapter extends  RecyclerView.Adapter<FacultyInfoAdapter
             email = itemView.findViewById(R.id.facultyEmailDisplay);
             post = itemView.findViewById(R.id.facultyPostDisplay);
             facultyCircleImageview = itemView.findViewById(R.id.facultyImageDisplay);
+            visitFacultyPage=itemView.findViewById(R.id.visitFacultyPage);
+            facultyPageUrl=itemView.findViewById(R.id.facultyPageUrl);
 
 
         }

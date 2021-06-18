@@ -43,6 +43,9 @@ public class AboutFragment extends Fragment {
     private ArrayList<AdminManagementData> list;
     private AdminManagementAdapter adminManagementAdapter;
 
+    private TextView overviewTitle,visionTitle,missionTitle,qualityPolicyTitle,adminManagementTitle;
+    private boolean  overviewTitleTap=false,visionTitleTap=false,missionTitleTap=false,qualityPolicyTitleTap=false,adminManagementTitleTap=false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,37 +61,157 @@ public class AboutFragment extends Fragment {
         clickToViewVision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                visionTV.setVisibility(View.VISIBLE);
+                if(visionTitleTap){
+
+                    visionTV.setVisibility(View.GONE);
+                    visionTitleTap=false;
+
+                }else{
+                    visionTV.setVisibility(View.VISIBLE);
+                    visionTitleTap=true;
+                }
+
             }
         });
 
         clickToViewMission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                missionTV.setVisibility(View.VISIBLE);
+                if(missionTitleTap){
+
+                    missionTV.setVisibility(View.GONE);
+                    missionTitleTap=false;
+
+                }else{
+                    missionTV.setVisibility(View.VISIBLE);
+                    missionTitleTap=true;
+                }
             }
         });
 
         clickToViewQualityPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                qualityPolicyTV.setVisibility(View.VISIBLE);
+                if(qualityPolicyTitleTap){
+
+                    qualityPolicyTV.setVisibility(View.GONE);
+                    qualityPolicyTitleTap=false;
+
+                }else{
+                    qualityPolicyTV.setVisibility(View.VISIBLE);
+                    qualityPolicyTitleTap=true;
+                }
             }
         });
 
         clickToViewOverview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                overviewItemContainerLL.setVisibility(View.VISIBLE);
+                if(overviewTitleTap){
+
+                    overviewItemContainerLL.setVisibility(View.GONE);
+                    overviewTitleTap=false;
+
+                }else {
+                    overviewItemContainerLL.setVisibility(View.VISIBLE);
+                    overviewTitleTap = true;
+                }
             }
         });
 
         clickToViewAdminManagers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adminManagerRecyclerView.setVisibility(View.VISIBLE);
+                if(adminManagementTitleTap){
+
+                    adminManagerRecyclerView.setVisibility(View.GONE);
+                    adminManagementTitleTap=false;
+
+                }else{
+                    adminManagerRecyclerView.setVisibility(View.VISIBLE);
+                    adminManagementTitleTap=true;
+                }
             }
         });
+
+
+        visionTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(visionTitleTap){
+
+                    visionTV.setVisibility(View.GONE);
+                    visionTitleTap=false;
+
+                }else{
+                    visionTV.setVisibility(View.VISIBLE);
+                    visionTitleTap=true;
+                }
+
+            }
+        });
+
+        missionTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(missionTitleTap){
+
+                    missionTV.setVisibility(View.GONE);
+                    missionTitleTap=false;
+
+                }else{
+                    missionTV.setVisibility(View.VISIBLE);
+                    missionTitleTap=true;
+                }
+            }
+        });
+
+        qualityPolicyTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(qualityPolicyTitleTap){
+
+                    qualityPolicyTV.setVisibility(View.GONE);
+                    qualityPolicyTitleTap=false;
+
+                }else{
+                    qualityPolicyTV.setVisibility(View.VISIBLE);
+                    qualityPolicyTitleTap=true;
+                }
+            }
+        });
+
+        overviewTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(overviewTitleTap){
+
+                    overviewItemContainerLL.setVisibility(View.GONE);
+                    overviewTitleTap=false;
+
+                }else {
+                    overviewItemContainerLL.setVisibility(View.VISIBLE);
+                    overviewTitleTap = true;
+                }
+            }
+        });
+
+        adminManagementTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(adminManagementTitleTap){
+
+                    adminManagerRecyclerView.setVisibility(View.GONE);
+                    adminManagementTitleTap=false;
+
+                }else{
+                    adminManagerRecyclerView.setVisibility(View.VISIBLE);
+                    adminManagementTitleTap=true;
+                }
+            }
+        });
+
+
 
 
         return view;
@@ -158,40 +281,29 @@ public class AboutFragment extends Fragment {
 
     private void setSliderImages() {
 
-        for(int i=0;i<6;i++){
-            DefaultSliderView defaultSliderView= new DefaultSliderView(getContext());
+        databaseReference.child("AboutInstitution").child("AboutSliderImages").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
 
-            switch(i){
+                if(snapshot.exists()){
 
-                case 0: defaultSliderView.setDescription("ImageOne");
-                    defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FOne.webp?alt=media&token=47856985-2015-4e51-aa90-d308ac378ba3");
-                    break;
+                    long imageCount= snapshot.getChildrenCount();
+                    for(int i=1 ; i<=imageCount;i++){
+                        DefaultSliderView defaultSliderView= new DefaultSliderView(getContext());
+                        defaultSliderView.setImageUrl(snapshot.child(String.valueOf(i)).getValue().toString());
+                        defaultSliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
+                        aboutSliderLayout.addSliderView(defaultSliderView );
+                    }
 
-                case 1: defaultSliderView.setDescription("ImageTwo");
-                    defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FTwo.webp?alt=media&token=bb99ff39-1c03-4ef4-927e-bf6123e79f2c");
-                    break;
+                }
 
-                case 2: defaultSliderView.setDescription("ImageThree");
-                    defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FThree.webp?alt=media&token=07fbeb8c-cab0-4f44-8bc6-3583a2897091");
-                    break;
-
-                case 3: defaultSliderView.setDescription("ImageFour");
-                    defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FFour.webp?alt=media&token=a9276bfd-433a-4ff7-8084-c1dcf7f23591");
-                    break;
-
-                case 4: defaultSliderView.setDescription("ImageFive");
-                    defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FFive.webp?alt=media&token=befa3884-fe7b-48a5-9e51-ed816b4755d9");
-                    break;
-
-                case 5: defaultSliderView.setDescription("ImageSix");
-                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/aboutImageSlider%2FSix.webp?alt=media&token=75cf7542-8a88-4b95-a28b-fcd94185a1cb");
-                    break;
             }
 
-            defaultSliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
-            aboutSliderLayout.addSliderView(defaultSliderView );
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
 
-        }
+            }
+        });
 
     }
 
@@ -231,6 +343,13 @@ public class AboutFragment extends Fragment {
         adminManagerRecyclerView.setVisibility(View.GONE);
 
         clickToViewAdminManagers=view.findViewById(R.id.clickToViewAdminManagers);
+
+        overviewTitle=view.findViewById(R.id.overviewTitle);
+        visionTitle=view.findViewById(R.id.visionTitle);
+        missionTitle=view.findViewById(R.id.missionTitle);
+        qualityPolicyTitle=view.findViewById(R.id.qualityPolicyTitle);
+        adminManagementTitle=view.findViewById(R.id.adminManagementTitle);
+
 
     }
 }

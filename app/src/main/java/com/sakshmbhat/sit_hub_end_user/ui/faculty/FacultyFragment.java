@@ -28,25 +28,25 @@ import java.util.List;
 
 public class FacultyFragment extends Fragment {
 
-    private RecyclerView ISE,AD,CSE,ECE,ME,EIE,CE,IE,IEM,Maths,Physics,Chemistry,BT,MBA,Architecture,AandNT,NTech,MCA,Civil,EEE;
+    private RecyclerView ISE,AD,CSE,ECE,ME,EIE,CE,ETE,IEM,Maths,Physics,Chemistry,BT,MBA,Architecture,AandNT,NTech,MCA,Civil,EEE;
 
-    private LinearLayout ISEnoData,NTechnoData,MCAnoData,CivilNoData,EEEnoData,CSEnoData,ADnoData,ECEnoData,MEnoData,EIEnoData,CEnoData,IEnoData,IEMnoData,MathsNoData,PhysicsNoData,ChemistryNoData,BTnoData,MBAnoData,ArchitectureNoData,AandNTnoData;
+    private LinearLayout ISEnoData,NTechnoData,MCAnoData,CivilNoData,EEEnoData,CSEnoData,ADnoData,ECEnoData,MEnoData,EIEnoData,CEnoData,ETEnoData,IEMnoData,MathsNoData,PhysicsNoData,ChemistryNoData,BTnoData,MBAnoData,ArchitectureNoData,AandNTnoData;
 
-    private List<FacultyAttributes> ISE_list,NTech_list,MCA_list,Civil_list,EEE_list,AD_list,CSE_list,ECE_list,ME_list,EIE_list,CE_list,IE_list,IEM_list,Maths_list,Physics_list,Chemistry_list,BT_list,MBA_list,Architecture_list,AandNT_list;
+    private List<FacultyAttributes> ISE_list,NTech_list,MCA_list,Civil_list,EEE_list,AD_list,CSE_list,ECE_list,ME_list,EIE_list,CE_list,ETE_list,IEM_list,Maths_list,Physics_list,Chemistry_list,BT_list,MBA_list,Architecture_list,AandNT_list;
 
     private DatabaseReference databaseReference,dbRef;
 
     private FacultyInfoAdapter recyclerAdapter;
 
-    private TextView ISETitle,ADTitle,CSETitle,ECETitle,METitle,EIETitle,CETitle,IETitle,IEMTitle,MathsTitle,PhysTitle,ChemTitle,BTTitle,MBATitle,ArchitectureTitle,AandNTTitle,NTechTitle,MCATitle,CivilTitle,EEETitle;
+    private TextView ISETitle,ADTitle,CSETitle,ECETitle,METitle,EIETitle,CETitle,ETETitle,IEMTitle,MathsTitle,PhysTitle,ChemTitle,BTTitle,MBATitle,ArchitectureTitle,AandNTTitle,NTechTitle,MCATitle,CivilTitle,EEETitle;
 
-    private TextView ISEVisitPage,ADVisitPage,CSEVisitPage,ECEVisitPage,MEVisitPage,EIEVisitPage,CEVisitPage,IEVisitPage,IEMVisitPage,MathsVisitPage,PhysVisitPage,ChemVisitPage,BTVisitPage,MBAVisitPage,ArchitectureVisitPage,AandNTVisitPage,NTechVisitPage,MCAVisitPage,CivilVisitPage,EEEVisitPage;
+    private TextView ISEVisitPage,ADVisitPage,CSEVisitPage,ECEVisitPage,MEVisitPage,EIEVisitPage,CEVisitPage,ETEVisitPage,IEMVisitPage,MathsVisitPage,PhysVisitPage,ChemVisitPage,BTVisitPage,MBAVisitPage,ArchitectureVisitPage,AandNTVisitPage,NTechVisitPage,MCAVisitPage,CivilVisitPage,EEEVisitPage;
 
-    private TextView ISEPageUrl,ADPageUrl,CSEPageUrl,ECEPageUrl,MEPageUrl,EIEPageUrl,CEPageUrl,IEPageUrl,IEMPageUrl,MathsPageUrl,PhysPageUrl,ChemPageUrl,BTPageUrl,MBAPageUrl,ArchitecturePageUrl,AandNTPageUrl,NTechPageUrl,MCAPageUrl,CivilPageUrl,EEEPageUrl;
+    private TextView ISEPageUrl,ADPageUrl,CSEPageUrl,ECEPageUrl,MEPageUrl,EIEPageUrl,CEPageUrl,ETEPageUrl,IEMPageUrl,MathsPageUrl,PhysPageUrl,ChemPageUrl,BTPageUrl,MBAPageUrl,ArchitecturePageUrl,AandNTPageUrl,NTechPageUrl,MCAPageUrl,CivilPageUrl,EEEPageUrl;
 
-    private LinearLayout ISEContent,ADContent,CSEContent,ECEContent,MEContent,EIEContent,CEContent,IEContent,IEMContent,MathsContent,PhysContent,ChemContent,BTContent,MBAContent,ArchitectureContent,AandNTContent,NTechContent,MCAContent,CivilContent,EEEContent;
+    private LinearLayout ISEContent,ADContent,CSEContent,ECEContent,MEContent,EIEContent,CEContent,ETEContent,IEMContent,MathsContent,PhysContent,ChemContent,BTContent,MBAContent,ArchitectureContent,AandNTContent,NTechContent,MCAContent,CivilContent,EEEContent;
 
-    private boolean ISETap=false,ADTap=false,CSETap=false,ECETap=false,METap=false,EIETap=false,CETap=false,IETap=false,IEMTap=false,MathsTap=false,PhysTap=false,ChemTap=false,BTTap=false,MBATap=false,ArchitectureTap=false,AandNTTap=false,NTechTap=false,MCATap=false,CivilTap=false,EEETap=false;
+    private boolean ISETap=false,ADTap=false,CSETap=false,ECETap=false,METap=false,EIETap=false,CETap=false,ETETap=false,IEMTap=false,MathsTap=false,PhysTap=false,ChemTap=false,BTTap=false,MBATap=false,ArchitectureTap=false,AandNTTap=false,NTechTap=false,MCATap=false,CivilTap=false,EEETap=false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,27 +60,27 @@ public class FacultyFragment extends Fragment {
 
         visitDeptPageListener();
 
-        iseDepartment();//Done
-        cseDepartment();//Done
-        eceDepartment();//Done
-        meDepartment();//Done
-        CivilDepartment();//Done
-        eieDepartment();
-        ceDepartment();// Done
+        iseDepartment();//Done//Done
+        cseDepartment();//Done//Done
+        eceDepartment();//Done//Done
+        meDepartment();//Done//Done
+        CivilDepartment();//Done//Done
+        eieDepartment();//Done//Done
+        ceDepartment();// Done//Done
         //teDepartment();
-        iemDepartment();//Done
-        mathsDepartment();//Done
-        physicsDepartment();//Done
-        chemistryDepartment();//Done
-        btDepartment();//Done
-        mbaDepartment();//Done
-        architectureDepartment();// Done
-        adDepartment();//Done
-        //ieDepartment();
+        iemDepartment();//Done//Done
+        mathsDepartment();//Done//Done
+        physicsDepartment();//Done//Done
+        chemistryDepartment();//Done//Done
+        btDepartment();//Done //Done
+        mbaDepartment();//Done//Done
+        architectureDepartment();// Done//Done
+        adDepartment();//Done//Done
+        eteDepartment();//Done
         ntDepartment();//NON teaching and administration
-        eeeDepartment();//Done
-        mcaDepartment();//Done
-        nanoTechDepartment();//Done
+        eeeDepartment();//Done//Done
+        mcaDepartment();//Done//Done
+        nanoTechDepartment();//Done//Done
 
         return view;
     }
@@ -92,161 +92,243 @@ public class FacultyFragment extends Fragment {
         ISEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(ISEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(ISEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ADVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(ADPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(ADPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         CSEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(CSEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(CSEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ECEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(ECEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(ECEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         MEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(MEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(MEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         EIEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(EIEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(EIEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        //Chemical Engineering
         CEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(CEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(CEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        IEVisitPage.setOnClickListener(new View.OnClickListener() {
+        ETEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(IEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try{Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                myWebLink.setData(Uri.parse(ETEPageUrl.getText().toString()));
+                getContext().startActivity(myWebLink);}catch(Exception e){
+
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         IEMVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(IEMPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(IEMPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         MathsVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(MathsPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(MathsPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         PhysVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(PhysPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(PhysPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        //Chemistry
         ChemVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(ChemPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(ChemPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         BTVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(BTPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(BTPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         MBAVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(MBAPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(MBAPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ArchitectureVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(ArchitecturePageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(ArchitecturePageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         AandNTVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(AandNTPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(AandNTPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         NTechVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(NTechPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(NTechPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         MCAVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(MCAPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(MCAPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         CivilVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(CivilPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(CivilPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         EEEVisitPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(EEEPageUrl.getText().toString()));
-                getContext().startActivity(myWebLink);
+                try {
+                    Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                    myWebLink.setData(Uri.parse(EEEPageUrl.getText().toString()));
+                    getContext().startActivity(myWebLink);
+                }catch(Exception e){
+                    Toast.makeText(getContext(), "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -259,240 +341,200 @@ public class FacultyFragment extends Fragment {
         ISETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ISETap) {
-                    ISEContent.setVisibility(View.GONE);
-                    ISETap=false;
-                }else{
+                if (ISEContent.getVisibility()== View.GONE) {
                     ISEContent.setVisibility(View.VISIBLE);
-                    ISETap=true;
+                }else{
+                    ISEContent.setVisibility(View.GONE);
                 }
             }
         });
         ADTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ADTap) {
-                    ADContent.setVisibility(View.GONE);
-                    ADTap=false;
-                }else{
+                if (ADContent.getVisibility()== View.GONE) {
                     ADContent.setVisibility(View.VISIBLE);
-                    ADTap=true;
+                }else{
+                    ADContent.setVisibility(View.GONE);
                 }
             }
         });
         CSETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CSETap) {
-                    CSEContent.setVisibility(View.GONE);
-                    CSETap=false;
-                }else{
+                if (CSEContent.getVisibility()== View.GONE) {
                     CSEContent.setVisibility(View.VISIBLE);
-                    CSETap=true;
+                }else{
+                    CSEContent.setVisibility(View.GONE);
                 }
             }
         });
         ECETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ECETap) {
-                    ECEContent.setVisibility(View.GONE);
-                    ECETap=false;
-                }else{
+                if (ECEContent.getVisibility()== View.GONE) {
                     ECEContent.setVisibility(View.VISIBLE);
-                    ECETap=true;
+                }else{
+                    ECEContent.setVisibility(View.GONE);
                 }
             }
         });
         METitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (METap) {
-                    MEContent.setVisibility(View.GONE);
-                    METap=false;
-                }else{
+                if (MEContent.getVisibility()== View.GONE) {
                     MEContent.setVisibility(View.VISIBLE);
-                    METap=true;
+                }else{
+                    MEContent.setVisibility(View.GONE);
                 }
             }
         });
         EIETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (EIETap) {
-                    EIEContent.setVisibility(View.GONE);
-                    EIETap=false;
-                }else{
+                if (EIEContent.getVisibility()== View.GONE) {
                     EIEContent.setVisibility(View.VISIBLE);
-                    EIETap=true;
+                }else{
+                    EIEContent.setVisibility(View.GONE);
                 }
             }
         });
         CETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CETap) {
-                    CEContent.setVisibility(View.GONE);
-                    CETap=false;
-                }else{
+                if (CEContent.getVisibility()== View.GONE) {
                     CEContent.setVisibility(View.VISIBLE);
-                    CETap=true;
+                }else{
+                    CEContent.setVisibility(View.GONE);
                 }
             }
         });
-        IETitle.setOnClickListener(new View.OnClickListener() {
+        ETETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (IETap) {
-                    IEContent.setVisibility(View.GONE);
-                    IETap=false;
+                if (ETEContent.getVisibility()== View.GONE) {
+                    ETEContent.setVisibility(View.VISIBLE);
                 }else{
-                    IEContent.setVisibility(View.VISIBLE);
-                    IETap=true;
+                    ETEContent.setVisibility(View.GONE);
                 }
             }
         });
         IEMTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (IEMTap) {
-                    IEMContent.setVisibility(View.GONE);
-                    IEMTap=false;
-                }else{
+                if (IEMContent.getVisibility()== View.GONE) {
                     IEMContent.setVisibility(View.VISIBLE);
-                    IEMTap=true;
+                }else{
+                    IEMContent.setVisibility(View.GONE);
                 }
             }
         });
         MathsTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MathsTap) {
-                    MathsContent.setVisibility(View.GONE);
-                    MathsTap=false;
-                }else{
+                if (MathsContent.getVisibility()== View.GONE) {
                     MathsContent.setVisibility(View.VISIBLE);
-                    MathsTap=true;
+                }else{
+                    MathsContent.setVisibility(View.GONE);
                 }
             }
         });
         PhysTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (PhysTap) {
-                    PhysContent.setVisibility(View.GONE);
-                    PhysTap=false;
-                }else{
+                if (PhysContent.getVisibility()== View.GONE) {
                     PhysContent.setVisibility(View.VISIBLE);
-                    PhysTap=true;
+                }else{
+                    PhysContent.setVisibility(View.GONE);
                 }
             }
         });
         ChemTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ChemTap) {
-                    ChemContent.setVisibility(View.GONE);
-                    ChemTap=false;
-                }else{
+                if (ChemContent.getVisibility()== View.GONE) {
                     ChemContent.setVisibility(View.VISIBLE);
-                    ChemTap=true;
+                }else{
+                    ChemContent.setVisibility(View.GONE);
                 }
             }
         });
         BTTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (BTTap) {
-                    BTContent.setVisibility(View.GONE);
-                    BTTap=false;
-                }else{
+                if (BTContent.getVisibility()== View.GONE) {
                     BTContent.setVisibility(View.VISIBLE);
-                    BTTap=true;
+                }else{
+                    BTContent.setVisibility(View.GONE);
                 }
             }
         });
         MBATitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MBATap) {
-                    MBAContent.setVisibility(View.GONE);
-                    MBATap=false;
-                }else{
+                if (MBAContent.getVisibility()== View.GONE) {
                     MBAContent.setVisibility(View.VISIBLE);
-                    MBATap=true;
+                }else{
+                    MBAContent.setVisibility(View.GONE);
                 }
             }
         });
         ArchitectureTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ArchitectureTap) {
-                    ArchitectureContent.setVisibility(View.GONE);
-                    ArchitectureTap=false;
-                }else{
+                if (ArchitectureContent.getVisibility()== View.GONE) {
                     ArchitectureContent.setVisibility(View.VISIBLE);
-                    ArchitectureTap=true;
+                }else{
+                    ArchitectureContent.setVisibility(View.GONE);
                 }
             }
         });
         AandNTTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (AandNTTap) {
-                    AandNTContent.setVisibility(View.GONE);
-                    AandNTTap=false;
-                }else{
+                if (AandNTContent.getVisibility()== View.GONE) {
                     AandNTContent.setVisibility(View.VISIBLE);
-                    AandNTTap=true;
+                }else{
+                    AandNTContent.setVisibility(View.GONE);
                 }
             }
         });
         NTechTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (NTechTap) {
-                    NTechContent.setVisibility(View.GONE);
-                    NTechTap=false;
-                }else{
+                if (NTechContent.getVisibility()== View.GONE) {
                     NTechContent.setVisibility(View.VISIBLE);
-                    NTechTap=true;
+                }else{
+                    NTechContent.setVisibility(View.GONE);
                 }
             }
         });
         MCATitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MCATap) {
-                    MCAContent.setVisibility(View.GONE);
-                    MCATap=false;
-                }else{
+                if (MCAContent.getVisibility()== View.GONE) {
                     MCAContent.setVisibility(View.VISIBLE);
-                    MCATap=true;
+                }else{
+                    MCAContent.setVisibility(View.GONE);
                 }
             }
         });
         CivilTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CivilTap) {
-                    CivilContent.setVisibility(View.GONE);
-                    CivilTap=false;
-                }else{
+                if (CivilContent.getVisibility()== View.GONE) {
                     CivilContent.setVisibility(View.VISIBLE);
-                    CivilTap=true;
+                }else{
+                    CivilContent.setVisibility(View.GONE);
                 }
             }
         });
         EEETitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (EEETap) {
-                    EEEContent.setVisibility(View.GONE);
-                    EEETap=false;
-                }else{
+                if (EEEContent.getVisibility()== View.GONE) {
                     EEEContent.setVisibility(View.VISIBLE);
-                    EEETap=true;
+                }else{
+                    EEEContent.setVisibility(View.GONE);
                 }
             }
         });
@@ -512,7 +554,7 @@ public class FacultyFragment extends Fragment {
         Civil=view.findViewById(R.id.CivilFacultyRecycler);
         EIE=view.findViewById(R.id.EIEFacultyRecycler);
         CE=view.findViewById(R.id.CEFacultyRecycler);
-        IE=view.findViewById(R.id.IEFacultyRecycler);
+        ETE=view.findViewById(R.id.ETEFacultyRecycler);
         IEM=view.findViewById(R.id.IEMFacultyRecycler);
         Maths=view.findViewById(R.id.MathsFacultyRecycler);
         Physics=view.findViewById(R.id.PhyFacultyRecycler);
@@ -534,7 +576,7 @@ public class FacultyFragment extends Fragment {
         CivilNoData=view.findViewById(R.id.CivilFacultyDataNotFound);
         EIEnoData=view.findViewById(R.id.EIEfacultyDataNotFound);
         CEnoData=view.findViewById(R.id.CEfacultyDataNotFound);
-        IEnoData=view.findViewById(R.id.IEfacultyDataNotFound);
+        ETEnoData=view.findViewById(R.id.ETEfacultyDataNotFound);
         IEMnoData=view.findViewById(R.id.IEMfacultyDataNotFound);
         MathsNoData=view.findViewById(R.id.MathsfacultyDataNotFound);
         PhysicsNoData=view.findViewById(R.id.PhyfacultyDataNotFound);
@@ -551,7 +593,7 @@ public class FacultyFragment extends Fragment {
         METitle=view.findViewById(R.id.METitle);
         EIETitle=view.findViewById(R.id.EIETitle);
         CETitle=view.findViewById(R.id.CETitle);
-        IETitle=view.findViewById(R.id.IETitle);
+        ETETitle=view.findViewById(R.id.ETETitle);
         IEMTitle=view.findViewById(R.id.IEMTitle);
         MathsTitle=view.findViewById(R.id.MathsTitle);
         PhysTitle=view.findViewById(R.id.PhyTitle);
@@ -573,7 +615,7 @@ public class FacultyFragment extends Fragment {
         MEVisitPage=view.findViewById(R.id.visitMEPage);
         EIEVisitPage=view.findViewById(R.id.visitEIEPage);
         CEVisitPage=view.findViewById(R.id.visitCEPage);
-        IEVisitPage=view.findViewById(R.id.visitIEPage);
+        ETEVisitPage=view.findViewById(R.id.visitETEPage);
         IEMVisitPage=view.findViewById(R.id.visitIEMPage);
         MathsVisitPage=view.findViewById(R.id.visitMathsPage);
         PhysVisitPage=view.findViewById(R.id.visitPhyPage);
@@ -594,7 +636,7 @@ public class FacultyFragment extends Fragment {
         MEPageUrl=view.findViewById(R.id.MEPageUrl);
         EIEPageUrl=view.findViewById(R.id.EIEPageUrl);
         CEPageUrl=view.findViewById(R.id.CEPageUrl);
-        IEPageUrl=view.findViewById(R.id.IEPageUrl);
+        ETEPageUrl=view.findViewById(R.id.ETEPageUrl);
         IEMPageUrl=view.findViewById(R.id.IEMPageUrl);
         MathsPageUrl=view.findViewById(R.id.MathsPageUrl);
         PhysPageUrl=view.findViewById(R.id.PhyPageUrl);
@@ -615,7 +657,7 @@ public class FacultyFragment extends Fragment {
         MEContent=view.findViewById(R.id.MEContent);
         EIEContent=view.findViewById(R.id.EIEContent);
         CEContent=view.findViewById(R.id.CEContent);
-        IEContent=view.findViewById(R.id.IEContent);
+        ETEContent=view.findViewById(R.id.ETEContent);
         IEMContent=view.findViewById(R.id.IEMContent);
         MathsContent=view.findViewById(R.id.MathsContent);
         PhysContent=view.findViewById(R.id.PhyContent);
@@ -637,49 +679,91 @@ public class FacultyFragment extends Fragment {
 
     }
 
-//    private void ieDepartment() {
-//
-//        dbRef=databaseReference.child("Administration and Non-teaching");
-//        dbRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                IE_list = new ArrayList<>();
-//
-//                if(!snapshot.exists()){
-//
-//                    IEnoData.setVisibility(View.VISIBLE);
-//                    IE.setVisibility(View.GONE);
-//                }else{
-//
-//                    IEnoData.setVisibility(View.GONE);
-//                    IE.setVisibility(View.VISIBLE);
-//
-//                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-//
-//                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-//                        IE_list.add(attributes);
-//
-//                    }
-//                    IE.setHasFixedSize(true);
-//                    IE.setLayoutManager(new LinearLayoutManager(getContext()));
-//                    recyclerAdapter = new FacultyInfoAdapter(IE_list, getContext(),"IE");
-//                    IE.setAdapter(recyclerAdapter);
-//
-//                }
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-//
-//    }
+    private void eteDepartment() {
+
+        FirebaseDatabase.getInstance().getReference().child("DepartmentInfo").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    ETEPageUrl.setText(snapshot.child("ElectronicAndTelecommunication").getValue().toString());
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+
+                Toast.makeText(getContext(), "ETE link unavailable", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        dbRef=databaseReference.child("ETE");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                ETE_list = new ArrayList<>();
+
+                if(!snapshot.exists()){
+
+                    ETEnoData.setVisibility(View.VISIBLE);
+                    ETE.setVisibility(View.GONE);
+                }else{
+
+                    ETEnoData.setVisibility(View.GONE);
+                    ETE.setVisibility(View.VISIBLE);
+
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ETE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ETE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ETE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ETE_list.add(attributes);
+
+                        }}
+                    ETE.setHasFixedSize(true);
+                    ETE.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerAdapter = new FacultyInfoAdapter(ETE_list, getContext(),"ETE");
+                    ETE.setAdapter(recyclerAdapter);
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
 
     private void adDepartment() {
 
@@ -720,12 +804,34 @@ public class FacultyFragment extends Fragment {
                     ADnoData.setVisibility(View.GONE);
                     AD.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        AD_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            AD_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            AD_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            AD_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            AD_list.add(attributes);
+
+                        }}
                     AD.setHasFixedSize(true);
                     AD.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(AD_list, getContext(),"AD");
@@ -852,12 +958,34 @@ public class FacultyFragment extends Fragment {
                     ArchitectureNoData.setVisibility(View.GONE);
                     Architecture.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        Architecture_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Architecture_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Architecture_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Architecture_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Architecture_list.add(attributes);
+
+                        }}
                     Architecture.setHasFixedSize(true);
                     Architecture.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(Architecture_list, getContext(),"Architecture");
@@ -918,12 +1046,34 @@ public class FacultyFragment extends Fragment {
                     MBAnoData.setVisibility(View.GONE);
                     MBA.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        MBA_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MBA_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MBA_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MBA_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MBA_list.add(attributes);
+
+                        }}
                     MBA.setHasFixedSize(true);
                     MBA.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(MBA_list, getContext(),"MBA");
@@ -984,12 +1134,34 @@ public class FacultyFragment extends Fragment {
                     MCAnoData.setVisibility(View.GONE);
                     MCA.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        MCA_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MCA_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MCA_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MCA_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            MCA_list.add(attributes);
+
+                        }}
                     MCA.setHasFixedSize(true);
                     MCA.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(MCA_list, getContext(),"MCA");
@@ -1049,12 +1221,34 @@ public class FacultyFragment extends Fragment {
                     BTnoData.setVisibility(View.GONE);
                     BT.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        BT_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            BT_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            BT_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            BT_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            BT_list.add(attributes);
+
+                        }}
                     BT.setHasFixedSize(true);
                     BT.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(BT_list, getContext(),"BT");
@@ -1116,12 +1310,34 @@ public class FacultyFragment extends Fragment {
                     ChemistryNoData.setVisibility(View.GONE);
                     Chemistry.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        Chemistry_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Chemistry_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Chemistry_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Chemistry_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Chemistry_list.add(attributes);
+
+                        }}
                     Chemistry.setHasFixedSize(true);
                     Chemistry.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(Chemistry_list, getContext(),"Chemistry");
@@ -1183,12 +1399,34 @@ public class FacultyFragment extends Fragment {
                     PhysicsNoData.setVisibility(View.GONE);
                     Physics.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        Physics_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Physics_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Physics_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Physics_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Physics_list.add(attributes);
+
+                        }}
                     Physics.setHasFixedSize(true);
                     Physics.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(Physics_list, getContext(),"Physics");
@@ -1250,12 +1488,34 @@ public class FacultyFragment extends Fragment {
                     MathsNoData.setVisibility(View.GONE);
                     Maths.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        Maths_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Maths_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Maths_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Maths_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Maths_list.add(attributes);
+
+                        }}
                     Maths.setHasFixedSize(true);
                     Maths.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(Maths_list, getContext(),"Maths");
@@ -1316,12 +1576,34 @@ public class FacultyFragment extends Fragment {
                     CEnoData.setVisibility(View.GONE);
                     CE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        CE_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CE_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CE_list.add(attributes);
+
+                        }}
                     CE.setHasFixedSize(true);
                     CE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(CE_list, getContext(),"CE");
@@ -1382,12 +1664,34 @@ public class FacultyFragment extends Fragment {
                     EIEnoData.setVisibility(View.GONE);
                     EIE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        EIE_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EIE_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EIE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EIE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EIE_list.add(attributes);
+
+                        }}
                     EIE.setHasFixedSize(true);
                     EIE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(EIE_list, getContext(),"EIE");
@@ -1449,12 +1753,34 @@ public class FacultyFragment extends Fragment {
                     IEMnoData.setVisibility(View.GONE);
                     IEM.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        IEM_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            IEM_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            IEM_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            IEM_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            IEM_list.add(attributes);
+
+                        }}
                     IEM.setHasFixedSize(true);
                     IEM.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(IEM_list, getContext(),"IEM");
@@ -1516,12 +1842,34 @@ public class FacultyFragment extends Fragment {
                     CivilNoData.setVisibility(View.GONE);
                     Civil.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        Civil_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Civil_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Civil_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Civil_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            Civil_list.add(attributes);
+
+                        }}
                     Civil.setHasFixedSize(true);
                     Civil.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(Civil_list, getContext(),"Civil");
@@ -1583,12 +1931,34 @@ public class FacultyFragment extends Fragment {
                     MEnoData.setVisibility(View.GONE);
                     ME.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        ME_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ME_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ME_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ME_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ME_list.add(attributes);
+
+                        }}
                     ME.setHasFixedSize(true);
                     ME.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(ME_list, getContext(),"ME");
@@ -1650,12 +2020,34 @@ public class FacultyFragment extends Fragment {
                     ECEnoData.setVisibility(View.GONE);
                     ECE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        ECE_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ECE_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ECE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ECE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ECE_list.add(attributes);
+
+                        }}
                     ECE.setHasFixedSize(true);
                     ECE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(ECE_list, getContext(),"ECE");
@@ -1717,12 +2109,34 @@ public class FacultyFragment extends Fragment {
                     EEEnoData.setVisibility(View.GONE);
                     EEE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        EEE_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EEE_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EEE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EEE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            EEE_list.add(attributes);
+
+                        }}
                     EEE.setHasFixedSize(true);
                     EEE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(EEE_list, getContext(),"EEE");
@@ -1766,7 +2180,6 @@ public class FacultyFragment extends Fragment {
             }
         });
 
-
         dbRef=databaseReference.child("CSE");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -1783,12 +2196,34 @@ public class FacultyFragment extends Fragment {
                     CSEnoData.setVisibility(View.GONE);
                     CSE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                    for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
                         FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
                         CSE_list.add(attributes);
 
-                    }
+                    }}
+                    if(snapshot.child("Professor").exists()){
+                    for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                        CSE_list.add(attributes);
+
+                    }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CSE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            CSE_list.add(attributes);
+
+                        }}
                     CSE.setHasFixedSize(true);
                     CSE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(CSE_list, getContext(),"CSE");
@@ -1849,12 +2284,34 @@ public class FacultyFragment extends Fragment {
                     ISEnoData.setVisibility(View.GONE);
                     ISE.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        ISE_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ISE_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ISE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ISE_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            ISE_list.add(attributes);
+
+                        }}
                     ISE.setHasFixedSize(true);
                     ISE.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(ISE_list, getContext(),"ISE");
@@ -1916,12 +2373,34 @@ public class FacultyFragment extends Fragment {
                     NTechnoData.setVisibility(View.GONE);
                     NTech.setVisibility(View.VISIBLE);
 
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    if(snapshot.child("HOD").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("HOD").getChildren()){
 
-                        FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
-                        NTech_list.add(attributes);
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            NTech_list.add(attributes);
 
-                    }
+                        }}
+                    if(snapshot.child("Professor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("Professor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            NTech_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssociateProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssociateProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            NTech_list.add(attributes);
+
+                        }}
+                    if(snapshot.child("AssistantProfessor").exists()){
+                        for(DataSnapshot dataSnapshot: snapshot.child("AssistantProfessor").getChildren()){
+
+                            FacultyAttributes attributes= dataSnapshot.getValue(FacultyAttributes.class);
+                            NTech_list.add(attributes);
+
+                        }}
                     NTech.setHasFixedSize(true);
                     NTech.setLayoutManager(new LinearLayoutManager(getContext()));
                     recyclerAdapter = new FacultyInfoAdapter(NTech_list, getContext(),"NT");

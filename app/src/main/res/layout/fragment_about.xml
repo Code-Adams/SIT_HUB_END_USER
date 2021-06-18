@@ -37,6 +37,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/overviewTitle"
                     android:text="@string/Overview"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center"
@@ -75,6 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/visionTitle"
                     android:text="@string/Vision"
                     android:textColor="#5A4FCF"
                     android:textSize="@dimen/title_size2"
@@ -113,6 +115,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/missionTitle"
                     android:text="@string/Mission"
                     android:textColor="#5A4FCF"
                     android:textSize="@dimen/title_size2"
@@ -151,6 +154,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/qualityPolicyTitle"
                     android:text="@string/Quality_Policy"
                     android:textColor="#5A4FCF"
                     android:textSize="@dimen/title_size2"
@@ -203,6 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/adminManagementTitle"
                     android:text="@string/Administrative_Management"
                     android:textSize="@dimen/title_size"
                     android:paddingStart="20dp"

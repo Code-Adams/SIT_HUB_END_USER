@@ -2,21 +2,32 @@ package com.sakshmbhat.sit_hub_end_user.ui.faculty;
 
 public class FacultyAttributes {
 
-    private String Name,Email,Post,ImageUrl,Key;
+    private String Name,Email,Post,ImageUrl,Key,profileUrl;
 
     //Constructor
     public FacultyAttributes(){
     }
+
     //Constructor;
-    public FacultyAttributes(String name,String email,String post,String imageUrl, String key) {
+    public FacultyAttributes(String name,String email,String post,String imageUrl, String key, String profileUrl) {
 
         this.Name = name;
         this.Email = email;
         this.Post = post;
         this.ImageUrl = imageUrl;
         this.Key = key;
+        this.profileUrl=profileUrl;
 
 
+    }
+
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 
     public String getName() {

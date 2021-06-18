@@ -17,11 +17,24 @@
     <string name="Faculty">Faculty</string>
     <string name="Lectures">Lectures</string>
     <string name="eBook">e-Books</string>
+    <string name="InternalLinks"><u>Internal Links</u></string>
     <string name="Website">Website</string>
     <string name="Share">Share</string>
     <string name="Theme">Theme</string>
     <string name="RateUs">Rate Us</string>
     <string name="Developer">Know Developers</string>
+    <string name="Cisco_Netacad"><u>CISCO Netacad</u></string>
+    <string name="Merit"><u>Merit</u></string>
+    <string name="Moodle"><u>Moodle</u></string>
+    <string name="NPTEL"><u>NPTEL</u></string>
+    <string name="OPAC"><u>OPAC</u></string>
+    <string name="Admission"><u>Admission</u></string>
+    <string name="Enquiry"><u>Enquiry</u></string>
+    <string name="Grievance_Form"><u>Grievance Form</u></string>
+    <string name="Open_Elective"><u>Open Elective</u></string>
+    <string name="Placement_Portal"><u>Placement Portal</u></string>
+    <string name="Fee_Payment"><u>Fee Payment</u></string>
+
     <string name="aboutCollege">Vision
 To develop young minds in a learning environment of high academic ambience by synergising spiritual values and technological competence.Mission
 To continuously strive for the total development of students by educating them in state-of-the-art-technologies and helping them imbibe professional ethics and societal commitment, so that they emerge as competent professionals to meet the global challenges.
@@ -53,7 +66,7 @@ Quality PolicySiddaganga Institute of Technology is Committed to:1. Impart Quali
     <string name="MBA">Master of Business Administration</string>
     <string name="Architecture">Architecture</string>
     <string name="Administration_And_Non_Teaching">Administration &amp; Non-Teaching</string>
-    <string name="Instrumentation_Engineering">Instrumentation Engineering</string>
+    <string name="Electronics_And_Telecommunication_Engineering">Electronics &amp; Telecommunication Engineering</string>
     <string name="Industrial_Engineering_And_Management">Industrial Engineering &amp; Management</string>
     <string name="Artificial_Intelligence_and_Data_Science">Artificial Intelligence and Data Science</string>
     <string name="Master_Of_Computer_Application">Master of Computer Application</string>
