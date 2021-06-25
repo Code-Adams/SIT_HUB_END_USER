@@ -50,7 +50,6 @@ public class AdminManagementAdapter extends RecyclerView.Adapter<AdminManagement
         //save title in title text view in card
         holder.managerName.setText(adminManagementData.getName());
         holder.managerPost.setText(adminManagementData.getPost());
-        holder.managerPageUrl.setText(adminManagementData.getPageUrl());
 
         //Set Image in card
         try {
@@ -64,17 +63,11 @@ public class AdminManagementAdapter extends RecyclerView.Adapter<AdminManagement
             public void onClick(View v) {
 
                try{ Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
-                myWebLink.setData(Uri.parse(holder.managerPageUrl.getText().toString()));
+                myWebLink.setData(Uri.parse(adminManagementData.getPageUrl()));
                 context.startActivity(myWebLink);
                }catch (Exception e){
                    Toast.makeText(context, "Webpage Unavailable!", Toast.LENGTH_SHORT).show();
                }
-
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_VIEW);
-//                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//                intent.setData(Uri.parse(holder.managerPageUrl.toString()));
-//                context.startActivity(intent);
             }
         });
 
@@ -89,7 +82,7 @@ public class AdminManagementAdapter extends RecyclerView.Adapter<AdminManagement
 
     public class AdminManagementViewAdapter extends RecyclerView.ViewHolder {
 
-        private TextView managerName,managerPost,visitManagerPage,managerPageUrl;
+        private TextView managerName,managerPost,visitManagerPage;
         private CircleImageView managerImage;
 
         public AdminManagementViewAdapter(@NonNull View itemView) {
@@ -99,7 +92,6 @@ public class AdminManagementAdapter extends RecyclerView.Adapter<AdminManagement
             managerImage=itemView.findViewById(R.id.managerImage);
             managerPost=itemView.findViewById(R.id.managerPost);
             visitManagerPage=itemView.findViewById(R.id.visitManagerPage);
-            managerPageUrl=itemView.findViewById(R.id.managerPageUrl);
 
         }
     }

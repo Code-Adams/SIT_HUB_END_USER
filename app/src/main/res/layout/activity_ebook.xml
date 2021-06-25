@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".nav_drawer.ebook.EbookActivity">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
-            android:id="@+id/noEbookFound">
+            android:id="@+id/noEbookFound"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <include layout="@layout/no_data_available_card"/>
 

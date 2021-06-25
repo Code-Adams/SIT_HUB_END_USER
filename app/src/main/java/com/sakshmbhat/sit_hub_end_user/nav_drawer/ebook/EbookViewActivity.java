@@ -141,5 +141,16 @@ public class EbookViewActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
         return connected;
     }
+    @Override
+    protected void onPause() {
+        shimmerFrameLayout.stopShimmer();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        shimmerFrameLayout.startShimmer();
+        super.onResume();
+    }
 
 }

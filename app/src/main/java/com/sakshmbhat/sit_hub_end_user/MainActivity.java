@@ -31,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sakshmbhat.sit_hub_end_user.developerReference.DeveloperReferenceActivity;
 import com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook.EbookActivity;
 import com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook.EbookViewActivity;
 import com.sakshmbhat.sit_hub_end_user.nav_drawer.internal_links.InternalLinksActivity;
@@ -128,6 +129,9 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
                        Toast.makeText(MainActivity.this, "Broken Url", Toast.LENGTH_SHORT).show();
                    }
                 break;
+
+            case R.id.navigation_developer:
+                startActivity(new Intent(MainActivity.this, DeveloperReferenceActivity.class));
         }
 
 
