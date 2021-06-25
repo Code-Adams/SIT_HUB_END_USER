@@ -20,9 +20,9 @@
     <item android:id="@+id/navigation_share"
           android:title="@string/Share"
         android:icon="@drawable/ic_share"/>
-    <item android:id="@+id/navigation_theme"
-        android:title="@string/Theme"
-        android:icon="@drawable/ic_theme"/>
+<!--    <item android:id="@+id/navigation_theme"-->
+<!--        android:title="@string/Theme"-->
+<!--        android:icon="@drawable/ic_theme"/>-->
     <item android:id="@+id/navigation_review"
         android:title="@string/RateUs"
         android:icon="@drawable/ic_review"/>

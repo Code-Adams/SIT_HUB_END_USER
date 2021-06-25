@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -18,9 +20,10 @@
             android:layout_height="wrap_content">
             
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 app:civ_border_width="2dp"
+                android:id="@+id/feedUploaderProfilePic"
                 app:civ_border_color="@color/darkColor"
                 android:src="@drawable/user"/>
 
@@ -35,7 +38,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Namma_SIT"
+                    android:id="@+id/feedUploader"
+                    android:text="userName comes here"
                     android:textSize="18dp"
                     android:textColor="@color/textColor"/>
 
@@ -58,7 +62,7 @@
                         android:id="@+id/feedItemDate"
                         android:text="@string/demoDate"
                         android:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size14"
+                        android:textSize="12dp"
                         android:textColor="@color/textColor"/>
 
                     <TextView
@@ -76,7 +80,7 @@
                         android:id="@+id/feedItemTime"
                         android:text="@string/demoTime"
                         android:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size14"
+                        android:textSize="12sp"
                         android:textColor="@color/textColor"/>
 
 
@@ -92,9 +96,29 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/text_margin"
             android:hint="@string/Title_Will_Load_Here"
-            android:textSize="17sp"
+            android:textSize="@dimen/text_size18"
             android:id="@+id/feedTitleDisplay"
             android:textColor="@color/textColor"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:id="@+id/feedLinkData">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Link Text Comes here!"
+                android:id="@+id/feedLinkText"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_internal_links_label"
+                android:id="@+id/feedBrowseLink"/>
+        </LinearLayout>
 
 
         <ImageView

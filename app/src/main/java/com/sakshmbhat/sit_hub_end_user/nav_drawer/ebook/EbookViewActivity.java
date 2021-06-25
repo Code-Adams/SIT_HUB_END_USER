@@ -2,11 +2,18 @@ package com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.sakshmbhat.sit_hub_end_user.R;
 
@@ -19,6 +26,7 @@ public class EbookViewActivity extends AppCompatActivity {
 
     private String ebookUrl;
     private PDFView pdfView;
+    private ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +35,53 @@ public class EbookViewActivity extends AppCompatActivity {
 
       initialize();
 
-      new ebookDownloadAsyncTask().execute(ebookUrl);
+      if(checkConnectivity()){
 
+          try{
+              new ebookDownloadAsyncTask().execute(ebookUrl);
+          }catch (Exception e){
+
+              AlertDialog.Builder builder = new AlertDialog.Builder(
+                      EbookViewActivity.this);
+              builder.setTitle("Oops!");
+              builder.setCancelable(false);
+              builder.setMessage("Ebook cannot be displayed right now. Download it instead");
+              builder.setPositiveButton("OK",
+                      new DialogInterface.OnClickListener() {
+                          public void onClick(DialogInterface dialog,
+                                              int which) {
+                              finish();
+                          }
+                      });
+              builder.show();
+
+          }
+
+      }else{
+
+          AlertDialog.Builder builder = new AlertDialog.Builder(
+                  EbookViewActivity.this);
+          builder.setTitle("No connection!");
+          builder.setCancelable(false);
+          builder.setMessage("Check your Internet and try again!");
+          builder.setPositiveButton("OK",
+                  new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog,
+                                          int which) {
+                          finish();
+                      }
+                  });
+          builder.show();
+
+
+      }
     }
 
     private void initialize() {
         ebookUrl= getIntent().getStringExtra("ebookUrl");
         pdfView=findViewById(R.id.ebookViewer);
+        shimmerFrameLayout=findViewById(R.id.shimmer_view_container);
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
     }
 
     private class ebookDownloadAsyncTask extends AsyncTask<String,Void,InputStream>{
@@ -53,6 +101,8 @@ public class EbookViewActivity extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                shimmerFrameLayout.stopShimmer();
+                shimmerFrameLayout.setVisibility(View.GONE);
                 Toast.makeText(EbookViewActivity.this, "Bad Ebook Url!", Toast.LENGTH_SHORT).show();
             }
 
@@ -70,6 +120,8 @@ public class EbookViewActivity extends AppCompatActivity {
                     .enableSwipe(true)
                     .enableDoubletap(true)
                     .load();
+            shimmerFrameLayout.stopShimmer();
+            shimmerFrameLayout.setVisibility(View.GONE);
 
         }
     }
@@ -80,4 +132,14 @@ public class EbookViewActivity extends AppCompatActivity {
         startActivity(new Intent(EbookViewActivity.this,EbookActivity.class));
         finish();
     }
+
+    public boolean checkConnectivity() {
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        //we are connected to a network
+        connected = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+        return connected;
+    }
+
 }

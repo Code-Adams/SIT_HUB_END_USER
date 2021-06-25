@@ -80,11 +80,32 @@ Quality PolicySiddaganga Institute of Technology is Committed to:1. Impart Quali
     <string name="Highest_Package">Highest Package</string>
 
     <string name="Overview">Overview:</string>
+    <string name="ourValues">Our values:</string>
     <string name="Vision"><u>Vision</u>:</string>
     <string name="Mission"><u>Mission</u>:</string>
     <string name="Quality_Policy"><u>Quality Policy</u>:</string>
     <string name="Administrative_Management"><u>Admin Management</u>:</string>
 
     <string name="Visit_Page"><u>Visit Page</u></string>
+
+    <string name="collegeName">Siddaganga Institute of Technology</string>
+    <string name="collegeSplashText">An Autonomous Institute, Affiliated to VTU Belagavi, Approved by AICTE</string>
+    <string name="collegeAddress">B.H. Road, Tumkur 572 103, Karnataka, India</string>
+    <string name="institutionalValues">Institutional Values:</string>
+    <string name="coreValues">Core Values:</string>
+    <string name="Search">Search</string>
+    <string name="address">Address:</string>
+    <string name="principal">Principal:</string>
+    <string name="phone1">Phone1:</string>
+    <string name="phone2">Phone2:</string>
+    <string name="office">Office:</string>
+    <string name="PlacementsDept">Placement:\nDept.</string>
+    <string name="find_us_here">Find us here:</string>
+
+    <string-array name="themeChoice">
+        <item>System Default</item>
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
 
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/websiteColor"
     tools:context=".ui.gallery.GalleryFragment">
 
     <LinearLayout
@@ -24,12 +25,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="imageCategoryA"
-                    android:id="@+id/pictureGalleryCategoryA"
+                    android:text="Infrastructure"
+                    android:id="@+id/pictureGalleryCategoryInfrastructure"
                     android:layout_marginTop="@dimen/text_margin"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/websiteColor"
                     android:fontFamily="@string/bold"/>
 
                 <View
@@ -41,7 +42,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/categoryRecyclerA"/>
+                    android:id="@+id/categoryRecyclerInfrastructure"/>
 
             </LinearLayout>
 
@@ -61,12 +62,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="imageCategoryB"
-                    android:id="@+id/pictureGalleryCategoryB"
+                    android:text="Incubation Cell"
+                    android:id="@+id/pictureGalleryCategoryIncubationCell"
                     android:layout_marginTop="@dimen/text_margin"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/websiteColor"
                     android:fontFamily="@string/bold"/>
 
                 <View
@@ -78,7 +79,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/categoryRecyclerB"/>
+                    android:id="@+id/categoryRecyclerIncubationCell"/>
 
             </LinearLayout>
 
@@ -98,12 +99,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="imageCategoryC"
-                android:id="@+id/pictureGalleryCategoryC"
+                android:text="Research"
+                android:id="@+id/pictureGalleryCategoryResearch"
                 android:layout_marginTop="@dimen/text_margin"
                 android:textSize="@dimen/title_size"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/textColor"
+                android:textColor="@color/websiteColor"
                 android:fontFamily="@string/bold"/>
 
             <View
@@ -115,7 +116,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/categoryRecyclerC"/>
+                android:id="@+id/categoryRecyclerResearch"/>
 
         </LinearLayout>
 
@@ -135,12 +136,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="imageCategoryD"
-                    android:id="@+id/pictureGalleryCategoryD"
+                    android:text="Sports"
+                    android:id="@+id/pictureGalleryCategorySports"
                     android:layout_marginTop="@dimen/text_margin"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/websiteColor"
                     android:fontFamily="@string/bold"/>
 
                 <View
@@ -152,12 +153,50 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/categoryRecyclerD"/>
+                    android:id="@+id/categoryRecyclerSports"/>
 
             </LinearLayout>
 
 
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="8dp"
+            android:layout_height="300dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Campus"
+                    android:id="@+id/pictureGalleryCategoryCampus"
+                    android:layout_marginTop="@dimen/text_margin"
+                    android:textSize="@dimen/title_size"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/websiteColor"
+                    android:fontFamily="@string/bold"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/grey"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/categoryRecyclerCampus"/>
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

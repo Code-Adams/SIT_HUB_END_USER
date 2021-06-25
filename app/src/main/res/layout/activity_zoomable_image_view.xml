@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ZoomableImageViewActivity">
 
+
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/zoomImageView"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

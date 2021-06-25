@@ -1,5 +1,6 @@
 package com.sakshmbhat.sit_hub_end_user.ui.about;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,12 +16,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sakshmbhat.sit_hub_end_user.R;
+import com.sakshmbhat.sit_hub_end_user.ZoomableImageViewActivity;
 import com.sakshmbhat.sit_hub_end_user.ui.home.GoldMedalistData;
 import com.sakshmbhat.sit_hub_end_user.ui.home.GoldMedalistRecyclerAdapter;
 import com.smarteist.autoimageslider.DefaultSliderView;
@@ -34,17 +38,17 @@ public class AboutFragment extends Fragment {
 
     private SliderLayout aboutSliderLayout;
 
-    private  TextView clickToViewVision,clickToViewMission,clickToViewQualityPolicy,clickToViewOverview,clickToViewAdminManagers;
-    private  TextView visionTV,missionTV,qualityPolicyTV;
-    private LinearLayout overviewItemContainerLL;
+    private TextInputLayout overViewTitleContainer,ourValuesTitleContainer,adminManagementTitleContainer;
+   private  LinearLayout   visionTitleContainer,missionTitleContainer,qualityPolicyTitleContainer,institutionalValuesTitleContainer,coreValuesTitleContainer;;
+    private  ImageView   coreValuesImage;
+    private  TextView visionTV,missionTV,qualityPolicyTV,institutionalValuesTV;
+    private LinearLayout overviewItemContainerLL,ourValuesItemContainerLL;
 
     private DatabaseReference databaseReference;
     private RecyclerView adminManagerRecyclerView;
     private ArrayList<AdminManagementData> list;
     private AdminManagementAdapter adminManagementAdapter;
-
-    private TextView overviewTitle,visionTitle,missionTitle,qualityPolicyTitle,adminManagementTitle;
-    private boolean  overviewTitleTap=false,visionTitleTap=false,missionTitleTap=false,qualityPolicyTitleTap=false,adminManagementTitleTap=false;
+    String coreValueImageUrl;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,249 +58,170 @@ public class AboutFragment extends Fragment {
 
         initialization(view);
         setSliderAttributes(view);
-        setSliderImages();
-        getAndSetOverview();
-        getAndSetAdminManagerData();
+       // setSliderImages();
+        getAndSetAbout();
+        //getAndSetAdminManagerData();
+      //  getAndSetOurValuesCoreValueImageUrl();
 
-        clickToViewVision.setOnClickListener(new View.OnClickListener() {
+        ourValuesTitleContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(visionTitleTap){
+                if(ourValuesItemContainerLL.getVisibility()==View.VISIBLE){
+                    ourValuesItemContainerLL.setVisibility(View.GONE);
+                }else{
+                    ourValuesItemContainerLL.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        institutionalValuesTitleContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(institutionalValuesTV.getVisibility()==View.VISIBLE){
+                    institutionalValuesTV.setVisibility(View.GONE);
+                }else{
+                    institutionalValuesTV.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        coreValuesTitleContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(coreValuesImage.getVisibility()==View.VISIBLE){
+                    coreValuesImage.setVisibility(View.GONE);
+                }else{
+                    coreValuesImage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
+        visionTitleContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(visionTV.getVisibility()==View.VISIBLE){
                     visionTV.setVisibility(View.GONE);
-                    visionTitleTap=false;
-
                 }else{
                     visionTV.setVisibility(View.VISIBLE);
-                    visionTitleTap=true;
                 }
 
             }
         });
 
-        clickToViewMission.setOnClickListener(new View.OnClickListener() {
+        missionTitleContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(missionTitleTap){
-
+                if(missionTV.getVisibility()==View.VISIBLE){
                     missionTV.setVisibility(View.GONE);
-                    missionTitleTap=false;
-
                 }else{
                     missionTV.setVisibility(View.VISIBLE);
-                    missionTitleTap=true;
                 }
             }
         });
 
-        clickToViewQualityPolicy.setOnClickListener(new View.OnClickListener() {
+        qualityPolicyTitleContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(qualityPolicyTitleTap){
-
+                if(qualityPolicyTV.getVisibility()==View.VISIBLE){
                     qualityPolicyTV.setVisibility(View.GONE);
-                    qualityPolicyTitleTap=false;
 
                 }else{
                     qualityPolicyTV.setVisibility(View.VISIBLE);
-                    qualityPolicyTitleTap=true;
                 }
             }
         });
 
-        clickToViewOverview.setOnClickListener(new View.OnClickListener() {
+        overViewTitleContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(overviewTitleTap){
-
+                if(overviewItemContainerLL.getVisibility()==View.VISIBLE){
                     overviewItemContainerLL.setVisibility(View.GONE);
-                    overviewTitleTap=false;
-
                 }else {
                     overviewItemContainerLL.setVisibility(View.VISIBLE);
-                    overviewTitleTap = true;
                 }
             }
         });
 
-        clickToViewAdminManagers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(adminManagementTitleTap){
-
-                    adminManagerRecyclerView.setVisibility(View.GONE);
-                    adminManagementTitleTap=false;
-
-                }else{
-                    adminManagerRecyclerView.setVisibility(View.VISIBLE);
-                    adminManagementTitleTap=true;
-                }
-            }
-        });
-
-
-        visionTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(visionTitleTap){
-
-                    visionTV.setVisibility(View.GONE);
-                    visionTitleTap=false;
-
-                }else{
-                    visionTV.setVisibility(View.VISIBLE);
-                    visionTitleTap=true;
-                }
-
-            }
-        });
-
-        missionTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(missionTitleTap){
-
-                    missionTV.setVisibility(View.GONE);
-                    missionTitleTap=false;
-
-                }else{
-                    missionTV.setVisibility(View.VISIBLE);
-                    missionTitleTap=true;
-                }
-            }
-        });
-
-        qualityPolicyTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(qualityPolicyTitleTap){
-
-                    qualityPolicyTV.setVisibility(View.GONE);
-                    qualityPolicyTitleTap=false;
-
-                }else{
-                    qualityPolicyTV.setVisibility(View.VISIBLE);
-                    qualityPolicyTitleTap=true;
-                }
-            }
-        });
-
-        overviewTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(overviewTitleTap){
-
-                    overviewItemContainerLL.setVisibility(View.GONE);
-                    overviewTitleTap=false;
-
-                }else {
-                    overviewItemContainerLL.setVisibility(View.VISIBLE);
-                    overviewTitleTap = true;
-                }
-            }
-        });
-
-        adminManagementTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(adminManagementTitleTap){
-
-                    adminManagerRecyclerView.setVisibility(View.GONE);
-                    adminManagementTitleTap=false;
-
-                }else{
-                    adminManagerRecyclerView.setVisibility(View.VISIBLE);
-                    adminManagementTitleTap=true;
-                }
-            }
-        });
-
-
-
+//        adminManagementTitleContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(adminManagerRecyclerView.getVisibility()==View.VISIBLE){
+//                    adminManagerRecyclerView.setVisibility(View.GONE);
+//
+//                }else{
+//                    adminManagerRecyclerView.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
 
         return view;
+
     }
 
-    private void getAndSetOverview() {
 
-        databaseReference.child("AboutInstitution").child("Overview").addValueEventListener(new ValueEventListener() {
+    private void getAndSetAbout() {
+
+        databaseReference.child("AboutInstitution").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {
 
-                if(snapshot.exists()){
+                if(snapshot.child("Overview").exists()){
 
-                    visionTV.setText(snapshot.child("Vision").getValue().toString());
-                    missionTV.setText(snapshot.child("Mission").getValue().toString());
-                    qualityPolicyTV.setText(snapshot.child("QualityPolicy").getValue().toString());
+                    visionTV.setText(String.valueOf(snapshot.child("Overview").child("Vision").getValue()));
+                    missionTV.setText(String.valueOf(snapshot.child("Overview").child("Mission").getValue()));
+                    qualityPolicyTV.setText(String.valueOf(snapshot.child("Overview").child("QualityPolicy").getValue()));
                 }
+                if(snapshot.child("AboutSliderImages").exists()){
 
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull  DatabaseError error) {
-
-            }
-        });
-
-
-    }
-
-    private void getAndSetAdminManagerData() {
-
-
-        databaseReference.child("AboutInstitution").child("AdministrativeManagement").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                list = new ArrayList<>();
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-
-                    AdminManagementData adminManagementData= dataSnapshot.getValue(AdminManagementData.class);
-                    list.add(adminManagementData);
-
-                }
-
-                adminManagementAdapter = new AdminManagementAdapter(getContext(),list);
-                //notify the adapter that new data is available so that adapter can reset it
-                adminManagementAdapter.notifyDataSetChanged();
-                //As recycler is reset disable progress bar
-               // progressBar.setVisibility(View.GONE);
-               adminManagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-               adminManagerRecyclerView.setAdapter(adminManagementAdapter);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-                //If Deletion fails first stop progress bar
-               // progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Operation Failed: "+ error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
-
-    private void setSliderImages() {
-
-        databaseReference.child("AboutInstitution").child("AboutSliderImages").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull  DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    long imageCount= snapshot.getChildrenCount();
+                    long imageCount= snapshot.child("AboutSliderImages").getChildrenCount();
                     for(int i=1 ; i<=imageCount;i++){
                         DefaultSliderView defaultSliderView= new DefaultSliderView(getContext());
-                        defaultSliderView.setImageUrl(snapshot.child(String.valueOf(i)).getValue().toString());
+                        defaultSliderView.setImageUrl(String.valueOf(snapshot.child("AboutSliderImages").child(String.valueOf(i)).getValue()));
                         defaultSliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
                         aboutSliderLayout.addSliderView(defaultSliderView );
                     }
 
                 }
+                if(snapshot.child("AdministrativeManagement").exists()){
 
+                    list = new ArrayList<>();
+                    for(DataSnapshot dataSnapshot: snapshot.child("AdministrativeManagement").getChildren()){
+
+                        AdminManagementData adminManagementData= dataSnapshot.getValue(AdminManagementData.class);
+                        list.add(adminManagementData);
+
+                    }
+
+                    adminManagementAdapter = new AdminManagementAdapter(getContext(),list);
+                    //notify the adapter that new data is available so that adapter can reset it
+                    adminManagementAdapter.notifyDataSetChanged();
+                    //As recycler is reset disable progress bar
+                    // progressBar.setVisibility(View.GONE);
+                    adminManagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
+                    adminManagerRecyclerView.setAdapter(adminManagementAdapter);
+
+                }
+                if(snapshot.child("InstitutionalValues").exists()){
+
+                    institutionalValuesTV.setText(String.valueOf(snapshot.child("InstitutionalValues").child("InstitutionValues").getValue()));
+                    coreValueImageUrl=String.valueOf(snapshot.child("InstitutionalValues").child("CoreValues").getValue());
+                    try {
+                        Glide.with(getContext()).load(coreValueImageUrl).into(coreValuesImage);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    coreValuesImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            try{ Intent zoomImage= new Intent(getContext(), ZoomableImageViewActivity.class);
+                                zoomImage.putExtra("imageUrl",coreValueImageUrl);
+                                getContext().startActivity(zoomImage);}catch (Exception e){
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+
+                }
             }
 
             @Override
@@ -305,7 +230,73 @@ public class AboutFragment extends Fragment {
             }
         });
 
+
     }
+
+//    private void getAndSetAdminManagerData() {
+//
+//
+//        databaseReference.child("AboutInstitution").child("AdministrativeManagement").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                list = new ArrayList<>();
+//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+//
+//                    AdminManagementData adminManagementData= dataSnapshot.getValue(AdminManagementData.class);
+//                    list.add(adminManagementData);
+//
+//                }
+//
+//                adminManagementAdapter = new AdminManagementAdapter(getContext(),list);
+//                //notify the adapter that new data is available so that adapter can reset it
+//                adminManagementAdapter.notifyDataSetChanged();
+//                //As recycler is reset disable progress bar
+//               // progressBar.setVisibility(View.GONE);
+//               adminManagerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
+//               adminManagerRecyclerView.setAdapter(adminManagementAdapter);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                //If Deletion fails first stop progress bar
+//               // progressBar.setVisibility(View.GONE);
+//                Toast.makeText(getContext(), "Operation Failed: "+ error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
+//    }
+
+//    private void setSliderImages() {
+//
+//        databaseReference.child("AboutInstitution").child("AboutSliderImages").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+//
+//                if(snapshot.exists()){
+//
+//                    long imageCount= snapshot.getChildrenCount();
+//                    for(int i=1 ; i<=imageCount;i++){
+//                        DefaultSliderView defaultSliderView= new DefaultSliderView(getContext());
+//                        defaultSliderView.setImageUrl(String.valueOf(snapshot.child(String.valueOf(i)).getValue()));
+//                        defaultSliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
+//                        aboutSliderLayout.addSliderView(defaultSliderView );
+//                    }
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull  DatabaseError error) {
+//
+//            }
+//        });
+//
+//    }
 
     private void setSliderAttributes(View view) {
 
@@ -321,11 +312,6 @@ public class AboutFragment extends Fragment {
     private void initialization(View view) {
         aboutSliderLayout=view.findViewById(R.id.aboutSliderLayout);
 
-        clickToViewVision=view.findViewById(R.id.clickToViewVision);
-        clickToViewMission=view.findViewById(R.id.clickToViewMission);
-        clickToViewQualityPolicy=view.findViewById(R.id.clickToViewQualityPolicy);
-        clickToViewOverview=view.findViewById(R.id.clickToViewOverview);
-
         visionTV=view.findViewById(R.id.visionTV);
         visionTV.setVisibility(View.GONE);
 
@@ -338,17 +324,27 @@ public class AboutFragment extends Fragment {
         overviewItemContainerLL=view.findViewById(R.id.overviewItemContainerLL);
         overviewItemContainerLL.setVisibility(View.GONE);
 
+        ourValuesItemContainerLL=view.findViewById(R.id.ourValuesItemContainerLL);
+        ourValuesItemContainerLL.setVisibility(View.GONE);
+
         databaseReference= FirebaseDatabase.getInstance().getReference();
         adminManagerRecyclerView=view.findViewById(R.id.adminManagerRecyclerView);
-        adminManagerRecyclerView.setVisibility(View.GONE);
+//        adminManagerRecyclerView.setVisibility(View.GONE);
 
-        clickToViewAdminManagers=view.findViewById(R.id.clickToViewAdminManagers);
+        institutionalValuesTV=view.findViewById(R.id.institutionalValuesTV);
+        institutionalValuesTV.setVisibility(View.GONE);
+        coreValuesImage=view.findViewById(R.id.coreValuesIMage);
+        coreValuesImage.setVisibility(View.GONE);
+        overViewTitleContainer=view.findViewById(R.id.overviewTitleContainer);
+                visionTitleContainer=view.findViewById(R.id.visionTitleContainer);
+        missionTitleContainer=view.findViewById(R.id.missionTitleContainer);
+                qualityPolicyTitleContainer=view.findViewById(R.id.qualityPolicyTitleContainer);
+        ourValuesTitleContainer=view.findViewById(R.id.ourValuesTitleContainer);
+                institutionalValuesTitleContainer=view.findViewById(R.id.institutionalValuesTitleContainer);
+        coreValuesTitleContainer=view.findViewById(R.id.coreValuesTitleContainer);
+//        adminManagementTitleContainer=view.findViewById(R.id.adminManagementTitleContainer);
 
-        overviewTitle=view.findViewById(R.id.overviewTitle);
-        visionTitle=view.findViewById(R.id.visionTitle);
-        missionTitle=view.findViewById(R.id.missionTitle);
-        qualityPolicyTitle=view.findViewById(R.id.qualityPolicyTitle);
-        adminManagementTitle=view.findViewById(R.id.adminManagementTitle);
+
 
 
     }

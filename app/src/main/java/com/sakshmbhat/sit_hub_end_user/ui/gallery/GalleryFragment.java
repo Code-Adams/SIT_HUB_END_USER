@@ -24,7 +24,7 @@ import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
-    RecyclerView rvCatA,rvCatB,rvCatC,rvCatD;
+    RecyclerView rvCatInfrastructure,rvCatIncubationCell,rvCatResearch,rvCatSports,rvCatCampus;
     GalleryPictureAdapter galleryPictureAdapter;
     DatabaseReference databaseReference;
 
@@ -34,25 +34,27 @@ public class GalleryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
 
-        rvCatA=view.findViewById(R.id.categoryRecyclerA);
-        rvCatB=view.findViewById(R.id.categoryRecyclerB);
-        rvCatC=view.findViewById(R.id.categoryRecyclerC);
-        rvCatD=view.findViewById(R.id.categoryRecyclerD);
+        rvCatInfrastructure=view.findViewById(R.id.categoryRecyclerInfrastructure);
+        rvCatIncubationCell=view.findViewById(R.id.categoryRecyclerIncubationCell);
+        rvCatResearch=view.findViewById(R.id.categoryRecyclerResearch);
+        rvCatSports=view.findViewById(R.id.categoryRecyclerSports);
+        rvCatCampus=view.findViewById(R.id.categoryRecyclerCampus);
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Gallery");
 
-        getCatPicturesA();
-        getCatPicturesB();
-        getCatPicturesC();
-        getCatPicturesD();
+        getCatPicturesInfrastructure();
+        getCatPicturesIncubationCell();
+        getCatPicturesResearch();
+        getCatPicturesSports();
+        getCatPicturesCampus();
 
 
          return view;
     }
 
-    private void getCatPicturesA() {
+    private void getCatPicturesInfrastructure() {
 
-        databaseReference.child("A").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Infrastructure").addValueEventListener(new ValueEventListener() {
 
             List<String> imageUrlList = new ArrayList<>();
 
@@ -70,8 +72,8 @@ public class GalleryFragment extends Fragment {
                 }
 
                 galleryPictureAdapter= new GalleryPictureAdapter(getContext(),imageUrlList);
-                rvCatA.setLayoutManager(new GridLayoutManager(getContext(),3));
-                rvCatA.setAdapter(galleryPictureAdapter);
+                rvCatInfrastructure.setLayoutManager(new GridLayoutManager(getContext(),3));
+                rvCatInfrastructure.setAdapter(galleryPictureAdapter);
             }
 
             @Override
@@ -81,10 +83,10 @@ public class GalleryFragment extends Fragment {
         });
 
     }
-    private void getCatPicturesB() {
+    private void getCatPicturesIncubationCell() {
 
 
-        databaseReference.child("B").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Incubation Cell").addValueEventListener(new ValueEventListener() {
 
             List<String> imageUrlList = new ArrayList<>();
 
@@ -101,8 +103,8 @@ public class GalleryFragment extends Fragment {
                 }
 
                 galleryPictureAdapter= new GalleryPictureAdapter(getContext(),imageUrlList);
-                rvCatB.setLayoutManager(new GridLayoutManager(getContext(),3));
-                rvCatB.setAdapter(galleryPictureAdapter);
+                rvCatIncubationCell.setLayoutManager(new GridLayoutManager(getContext(),3));
+                rvCatIncubationCell.setAdapter(galleryPictureAdapter);
             }
 
             @Override
@@ -113,10 +115,10 @@ public class GalleryFragment extends Fragment {
 
 
     }
-    private void getCatPicturesC() {
+    private void getCatPicturesResearch() {
 
 
-        databaseReference.child("C").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Research").addValueEventListener(new ValueEventListener() {
 
             List<String> imageUrlList = new ArrayList<>();
 
@@ -134,8 +136,8 @@ public class GalleryFragment extends Fragment {
                 }
 
                 galleryPictureAdapter= new GalleryPictureAdapter(getContext(),imageUrlList);
-                rvCatC.setLayoutManager(new GridLayoutManager(getContext(),3));
-                rvCatC.setAdapter(galleryPictureAdapter);
+                rvCatResearch.setLayoutManager(new GridLayoutManager(getContext(),3));
+                rvCatResearch.setAdapter(galleryPictureAdapter);
             }
 
             @Override
@@ -146,10 +148,10 @@ public class GalleryFragment extends Fragment {
 
 
     }
-    private void getCatPicturesD() {
+    private void getCatPicturesSports() {
 
 
-        databaseReference.child("D").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Sports").addValueEventListener(new ValueEventListener() {
 
             List<String> imageUrlList = new ArrayList<>();
 
@@ -167,13 +169,47 @@ public class GalleryFragment extends Fragment {
                 }
 
                 galleryPictureAdapter= new GalleryPictureAdapter(getContext(),imageUrlList);
-                rvCatD.setLayoutManager(new GridLayoutManager(getContext(),3));
-                rvCatD.setAdapter(galleryPictureAdapter);
+                rvCatSports.setLayoutManager(new GridLayoutManager(getContext(),3));
+                rvCatSports.setAdapter(galleryPictureAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Category D gallery fault! ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Sports Gallery Error! ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    private void getCatPicturesCampus() {
+
+
+        databaseReference.child("Campus").addValueEventListener(new ValueEventListener() {
+
+            List<String> imageUrlList = new ArrayList<>();
+
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
+
+                        String imageUrl = dataSnapshot.getValue().toString();
+
+                        imageUrlList.add(imageUrl);
+                    }
+                }
+
+                galleryPictureAdapter= new GalleryPictureAdapter(getContext(),imageUrlList);
+                rvCatCampus.setLayoutManager(new GridLayoutManager(getContext(),3));
+                rvCatCampus.setAdapter(galleryPictureAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Campus Gallery Error! ", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5A4FCF"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.about.AboutFragment">
 
@@ -20,8 +20,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/overviewTitleContainer"
             android:background="#ffffff"
             android:elevation="100dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginBottom="5dp"
             app:boxCornerRadiusBottomEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
@@ -32,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,9 +52,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/clickToViewOverview"
                     android:textColor="#000000"
+                    android:gravity="center"
                     android:layout_gravity="center"
                     android:text="(Click to view)"
-                    android:textSize="10dp"/>
+                    android:textSize="10sp"/>
 
 
 
@@ -64,12 +67,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginHorizontal="10dp"
             android:id="@+id/overviewItemContainerLL"
             android:background="@color/grey2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/visionTitleContainer"
                 android:paddingStart="5dp"
                 android:orientation="horizontal">
 
@@ -85,7 +90,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/clickToViewVision"
                     android:textColor="#000000"
                     android:text="(Click to view)"
                     android:textSize="10dp"/>
@@ -109,6 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
+                android:id="@+id/missionTitleContainer"
                 android:layout_marginTop="@dimen/text_margin"
                 android:orientation="horizontal">
 
@@ -126,8 +131,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:text="(Click to view)"
-                    android:id="@+id/clickToViewMission"
-                    android:textSize="10dp"/>
+                    android:textSize="10sp"/>
 
             </LinearLayout>
 
@@ -148,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
+                android:id="@+id/qualityPolicyTitleContainer"
                 android:layout_marginTop="@dimen/text_margin"
                 android:orientation="horizontal">
 
@@ -164,7 +169,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:id="@+id/clickToViewQualityPolicy"
                     android:text="(Click to view)"
                     android:textSize="10dp"/>
 
@@ -192,7 +196,141 @@
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:elevation="100dp"
-            android:layout_marginVertical="5dp"
+            android:id="@+id/ourValuesTitleContainer"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ourValuesTitle"
+                    android:text="@string/ourValues"
+                    android:textSize="@dimen/title_size"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="#5A4FCF"
+                    android:fontFamily="@string/bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clickToViewOurValues"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="(Click to view)"
+                    android:textSize="10sp"/>
+
+
+
+            </LinearLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/ourValuesItemContainerLL"
+            android:background="@color/grey2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/institutionalValuesTitleContainer"
+                android:paddingStart="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/institutionalValues"
+                    android:textColor="#5A4FCF"
+                    android:textSize="@dimen/title_size2"
+                    android:fontFamily="@string/regular"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clickToViewVision"
+                    android:textColor="#000000"
+                    android:text="(Click to view)"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="2dp"
+                android:text="Institutional Values Come Here"
+                android:textAlignment="textStart"
+                android:id="@+id/institutionalValuesTV"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginHorizontal="@dimen/text_margin"
+                android:textSize="@dimen/text_size18"
+                android:textColor="@color/textColor"
+                android:fontFamily="@string/light"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:id="@+id/coreValuesTitleContainer"
+                android:layout_marginTop="@dimen/text_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/coreValuesTitle"
+                    android:text="@string/coreValues"
+                    android:textColor="#5A4FCF"
+                    android:textSize="@dimen/title_size2"
+                    android:fontFamily="@string/regular"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="(Click to view)"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:paddingHorizontal="2dp"
+                android:id="@+id/coreValuesIMage"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginHorizontal="@dimen/text_margin"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:elevation="100dp"
+            android:id="@+id/adminManagementTitleContainer"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
             app:boxCornerRadiusBottomEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopEnd="15dp"
@@ -202,28 +340,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/adminManagementTitle"
                     android:text="@string/Administrative_Management"
-                    android:textSize="@dimen/title_size"
-                    android:paddingStart="20dp"
+                    android:textSize="25sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="#5A4FCF"
                     android:fontFamily="@string/bold"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/clickToViewAdminManagers"
-                    android:textColor="#000000"
-                    android:layout_gravity="center"
-                    android:text="(Click to view)"
-                    android:textSize="10dp"/>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="(Click to view)"-->
+<!--                    android:textSize="12sp"/>-->
 
 
 
@@ -236,8 +373,13 @@
                 tools:listitem="@layout/admin_manager_card"
                 android:background="@color/grey"
                 android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+
+
+
 
     </LinearLayout>
 

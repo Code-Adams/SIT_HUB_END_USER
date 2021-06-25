@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -21,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.sakshmbhat.sit_hub_end_user.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class FeedFragment extends Fragment {
 
@@ -63,6 +67,7 @@ public class FeedFragment extends Fragment {
 
                 }
 
+                Collections.reverse(list);
                 feedAdapter = new FeedAdapter(getContext(),list);
                 //notify the adapter that new data is available so that adapter can reset it
                 feedAdapter.notifyDataSetChanged();
@@ -82,4 +87,5 @@ public class FeedFragment extends Fragment {
         });
 
     }
+
 }

@@ -1,6 +1,7 @@
 package com.sakshmbhat.sit_hub_end_user.ui.gallery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.sakshmbhat.sit_hub_end_user.R;
+import com.sakshmbhat.sit_hub_end_user.ZoomableImageViewActivity;
 
 import java.util.List;
 
@@ -42,10 +44,21 @@ public class GalleryPictureAdapter extends RecyclerView.Adapter<GalleryPictureAd
 
         try {
             Glide.with(context).load(imageUrlList.get(position)).into(holder.pictureGalleryImageView);
-            Toast.makeText(context, imageUrlList.get(position), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    holder.pictureGalleryImageView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try{
+                Intent zoomImage= new Intent(context, ZoomableImageViewActivity.class);
+                zoomImage.putExtra("imageUrl",imageUrlList.get(position));
+                context.startActivity(zoomImage);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    });
 
     }
 

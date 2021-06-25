@@ -1,7 +1,12 @@
 package com.sakshmbhat.sit_hub_end_user.ui.home;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.icu.lang.UCharacter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +30,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sakshmbhat.sit_hub_end_user.MainActivity;
 import com.sakshmbhat.sit_hub_end_user.R;
+import com.sakshmbhat.sit_hub_end_user.SplashScreenActivity;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class HomeFragment extends Fragment {
@@ -38,34 +47,154 @@ public class HomeFragment extends Fragment {
     private SliderLayout homeSliderLayout;
     private ImageView collegeLocationImage,collegeMHRDImage;
     private TextView companiesVisited,offersMade,internshipsOffered,highestPackage,placementYear,goldMedalistYear;
+    private TextView address,principalMail,phone1,phone2,officePhone,placementMail;
     private DatabaseReference databaseReference;
     private RecyclerView goldMedalistRecyclerView;
     private ArrayList<GoldMedalistData> list;
     private  GoldMedalistRecyclerAdapter goldMedalistRecyclerAdapter;
     private ProgressBar progressBar;
+    private Context mContext;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        initialization(view);
-        setSliderAttributes(view);
-        setSliderImages();
-        setMHRDImage();
-        setPlacementStats();
-        getAndSetGoldMedalistData();
 
+         initialization(view);
+         setSliderAttributes(view);
+         setSliderImages();
+         setMHRDImage();
+         setPlacementStats();
+         getAndSetGoldMedalistData();
+         setContactDetails();
+         collegeLocationImage.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 openMap();
+             }
+         });
 
-        collegeLocationImage.setOnClickListener(new View.OnClickListener() {
+        address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openMap();
+                try {
+                    ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("address", String.valueOf(address.getText()).trim());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+                principalMail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        try {
+                            ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("principalMail", String.valueOf(principalMail.getText()).trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+        phone1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("phone1", String.valueOf(phone1.getText()).trim());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+                phone2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        try {
+                            ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("phone2", String.valueOf(phone2.getText()).trim());
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+        officePhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("officePhone", String.valueOf(officePhone.getText()).trim());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        placementMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("placementMail", String.valueOf(placementMail.getText()).trim());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
         });
 
         return view;
+    }
+
+    private void setContactDetails() {
+        FirebaseDatabase.getInstance().getReference().child("contactSIT").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+               try {
+                   if (snapshot.exists()) {
+
+                       address.setText(String.valueOf(snapshot.child("address").getValue()).trim());
+                       principalMail.setText(String.valueOf(snapshot.child("principalMail").getValue()).trim());
+                       phone1.setText(String.valueOf(snapshot.child("mobileNum1").getValue()).trim());
+                       phone2.setText(String.valueOf(snapshot.child("mobileNum2").getValue()).trim());
+                       officePhone.setText(String.valueOf(snapshot.child("landLine").getValue()).trim());
+                       placementMail.setText(String.valueOf(snapshot.child("placementsMail").getValue()).trim());
+                   }
+               }catch (Exception e){
+                   e.printStackTrace();
+               }
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+
+            }
+        });
     }
 
     private void getAndSetGoldMedalistData() {
@@ -161,7 +290,7 @@ public class HomeFragment extends Fragment {
                         Glide.with(getContext()).load(snapshot.child("PIC").getValue().toString()).into(collegeMHRDImage);
                     }catch (Exception e){
                         e.printStackTrace();
-                        Toast.makeText(getContext(), "MHRDrank pic missing" , Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getActivity(), "MHRDrank pic missing" , Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -181,10 +310,15 @@ public class HomeFragment extends Fragment {
 
     private void openMap() {
 
-        Uri uri= Uri.parse("geo:0,0?q=SIT Tumkur");
-        Intent toMaps= new Intent(Intent.ACTION_VIEW,uri);
-        toMaps.setPackage("com.google.android.apps.maps");
-        startActivity(toMaps);
+            try{
+                    Uri uri= Uri.parse("geo:0,0?q=SIT Tumkur");
+                    Intent toMaps= new Intent(Intent.ACTION_VIEW,uri);
+                    toMaps.setPackage("com.google.android.apps.maps");
+                    startActivity(toMaps);
+                        }catch(Exception e){
+                e.printStackTrace();
+                Toast.makeText(getContext(), "Google Maps: Error!", Toast.LENGTH_SHORT).show();
+            }
     }
 
     private void initialization(View view) {
@@ -202,6 +336,13 @@ public class HomeFragment extends Fragment {
         goldMedalistYear=view.findViewById(R.id.goldMedalistYear);
         goldMedalistRecyclerView=view.findViewById(R.id.goldMedalistRecycler);
         progressBar=view.findViewById(R.id.goldMedalistProgressBar);
+
+        address=view.findViewById(R.id.address);
+                principalMail=view.findViewById(R.id.principalMailID);
+        phone1=view.findViewById(R.id.phone1);
+                phone2=view.findViewById(R.id.phone2);
+        officePhone=view.findViewById(R.id.officePhone);
+        placementMail=view.findViewById(R.id.placementMail);
 
 
     }
@@ -233,41 +374,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        for(int i=0;i<5;i++){
-//            DefaultSliderView defaultSliderView= new DefaultSliderView(getContext());
-//
-//            switch(i){
-//
-//                case 0: defaultSliderView.setDescription("ImageOne");
-//                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/homeImageSlider%2FsliderImageOne.webp?alt=media&token=d5563209-3027-4c66-bda4-934c46b51a38");
-//                        break;
-//
-//                  case 1: defaultSliderView.setDescription("ImageTwo");
-//                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/homeImageSlider%2FsliderImageTwo.webp?alt=media&token=5901680a-f4bc-428c-a6d8-9fd068b09d9e");
-//                        break;
-//
-//                  case 2: defaultSliderView.setDescription("ImageThree");
-//                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/homeImageSlider%2FsliderImageThree.webp?alt=media&token=cb5c91b1-4e95-4138-8574-e70f48036a92");
-//                        break;
-//
-//                  case 3: defaultSliderView.setDescription("ImageFour");
-//                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/homeImageSlider%2FsliderImageFour.webp?alt=media&token=39945d84-9462-442f-ad38-63609ce942cd");
-//                        break;
-//
-//                  case 4: defaultSliderView.setDescription("ImageFive");
-//                        defaultSliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/sit-hub-master.appspot.com/o/homeImageSlider%2FsliderImagefive.webp?alt=media&token=b54626b7-116e-438d-bb30-6a64d25c6b3c");
-//                        break;
-//
-//
-//
-//
-//
-//            }
-//
-//          defaultSliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
-//           homeSliderLayout.addSliderView(defaultSliderView );
-//
-//        }
+
 
     }
 
@@ -281,4 +388,19 @@ public class HomeFragment extends Fragment {
         //setting scroll time
         homeSliderLayout.setScrollTimeInSec(2);
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mContext = null;
+    }
+
+
+
 }

@@ -52,6 +52,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     //Android PDF viewer
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
-
+    //Zoomable Photo View
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    //Shimmer animation visit "https://facebook.github.io/shimmer-android/" for more info
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 }

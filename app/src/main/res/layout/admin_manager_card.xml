@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="250dp"
-        android:layout_height="280dp"
+        android:layout_height="320dp"
         app:cardCornerRadius="5dp"
         android:elevation="200dp"
         app:cardBackgroundColor="#5A4FCF"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_margin"
                 android:layout_below="@id/managerImage"
-                android:lines="1"
                 android:text="nameComesHere"
                 android:textColor="@color/purple_100"
                 android:layout_centerHorizontal="true"
