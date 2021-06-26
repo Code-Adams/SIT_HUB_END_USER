@@ -1,4 +1,4 @@
-package com.sakshmbhat.sit_hub_end_user.developerReference;
+package com.sakshmbhat.sit_hub_end_user.nav_drawer.developerReference;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sakshmbhat.sit_hub_end_user.MainActivity;
 import com.sakshmbhat.sit_hub_end_user.R;
-import com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook.EbookActivity;
-import com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook.EbookAdapter;
-import com.sakshmbhat.sit_hub_end_user.nav_drawer.ebook.EbookData;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 

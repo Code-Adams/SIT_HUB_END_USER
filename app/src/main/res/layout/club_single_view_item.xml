@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="50dp"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/user"
+            android:layout_gravity="center"
+            android:id="@+id/clubLogo"
+            app:civ_border_color="@color/websiteColor"
+            app:civ_border_width="1dp"
+            android:layout_marginTop="10dp"
+            app:civ_border_overlay="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clubName"
+            android:textColor="@color/websiteColor"
+            android:textSize="@dimen/text_size19"
+            android:text="Name"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@string/regular"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/websiteColor"
+            android:id="@+id/clubType"
+            android:text="@string/type"
+            android:textSize="@dimen/text_size14"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@string/regular"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/knowMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@string/light"
+            android:gravity="center"
+            android:text="@string/know_more"
+            android:textColor="@color/websiteColor"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

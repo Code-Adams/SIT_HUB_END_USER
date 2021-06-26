@@ -37,19 +37,20 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
     public EbookViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.ebook_single_item_card,parent,false);
 
-        return new EbookViewHolder(view);
+        return new EbookAdapter.EbookViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull  EbookAdapter.EbookViewHolder holder, int position) {
 
-        holder.ebookName.setText(list.get(position).getEbookTitle());
+       final EbookData ebookData= list.get(position);
+        holder.ebookName.setText(ebookData.getEbookTitle());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(context,EbookViewActivity.class);
-                intent.putExtra("ebookUrl",list.get(position).getEbookUrl());
+                intent.putExtra("ebookUrl",ebookData.getEbookUrl());
                 context.startActivity(intent);
             }
         });
@@ -59,7 +60,7 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(list.get(position).getEbookUrl()));
+                    intent.setData(Uri.parse(ebookData.getEbookUrl()));
                     context.startActivity(intent);
                 }catch(Exception e){
 

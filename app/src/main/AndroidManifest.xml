@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIT_HUB_END_USER">
-        <activity android:name=".developerReference.DeveloperReferenceActivity"
-                  android:parentActivityName=".MainActivity"/>
+        <activity android:name=".nav_drawer.clubsOfSIT.SingleClubDescriptionActivity"></activity>
+        <activity
+            android:name=".nav_drawer.clubsOfSIT.ClubsOfSitActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".nav_drawer.developerReference.DeveloperReferenceActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ZoomableImageViewActivity" />
-        <activity android:name=".nav_drawer.internal_links.InternalLinksActivity"
-                  android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".nav_drawer.internal_links.InternalLinksActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".nav_drawer.ebook.EbookViewActivity" />
         <activity
             android:name=".nav_drawer.ebook.EbookActivity"

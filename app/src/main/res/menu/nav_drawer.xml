@@ -17,6 +17,10 @@
     <item android:id="@+id/navigation_website"
           android:title="@string/Website"
         android:icon="@drawable/ic_website"/>
+    <item android:id="@+id/navigation_clubs_of_sit"
+          android:title="@string/clubs_of_sit"
+        android:icon="@drawable/ic_clubs_of_sit"/>
+
     <item android:id="@+id/navigation_share"
           android:title="@string/Share"
         android:icon="@drawable/ic_share"/>

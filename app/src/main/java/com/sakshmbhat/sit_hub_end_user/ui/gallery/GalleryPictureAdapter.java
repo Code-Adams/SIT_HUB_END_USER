@@ -33,9 +33,7 @@ public class GalleryPictureAdapter extends RecyclerView.Adapter<GalleryPictureAd
     public GalleryPictureViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
       //inflate the layout
        View view= LayoutInflater.from(context).inflate(R.layout.picture_gallery_card,parent,false);
-
-
-        return new GalleryPictureViewAdapter(view);
+        return new GalleryPictureAdapter.GalleryPictureViewAdapter(view);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.sakshmbhat.sit_hub_end_user.developerReference;
+package com.sakshmbhat.sit_hub_end_user.nav_drawer.developerReference;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -17,10 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.sakshmbhat.sit_hub_end_user.R;
-import com.sakshmbhat.sit_hub_end_user.ui.about.AdminManagementAdapter;
-import com.sakshmbhat.sit_hub_end_user.ui.about.AdminManagementData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;

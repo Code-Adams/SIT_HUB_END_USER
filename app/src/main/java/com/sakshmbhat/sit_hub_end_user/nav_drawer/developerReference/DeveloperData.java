@@ -1,4 +1,4 @@
-package com.sakshmbhat.sit_hub_end_user.developerReference;
+package com.sakshmbhat.sit_hub_end_user.nav_drawer.developerReference;
 
 public class DeveloperData {
 
